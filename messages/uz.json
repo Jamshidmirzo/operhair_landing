@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "Hayrli — ustaga yoz, kalendarni to‘ldir",
+    "description": "Hayrli — O‘zbekistondagi ustalarga yozilish ilovasi. Hayrli Pro — ustalar uchun."
+  },
+  "nav": {
+    "forClients": "Mijozlar uchun",
+    "forBarbers": "Ustalar uchun",
+    "faq": "FAQ",
+    "menu": "Menyu",
+    "closeMenu": "Menyuni yopish"
+  },
+  "hero": {
+    "headlineLine1": "Ustaga yoz.",
+    "headlineLine2": "Kalendarni to‘ldir.",
+    "sub": "Hayrli — ustalarga yozilish uchun ilova. Hayrli Pro — ustalarning o‘zi uchun.",
+    "visualAlt": "Hayrli ilovasi ko‘rinishi"
+  },
+  "cta": {
+    "download": "Yuklash",
+    "downloadHayrli": "Hayrli ni yuklash",
+    "becomePartner": "Hamkor bo‘lish",
+    "openMenu": "Menyuni ochish"
+  },
+  "tabs": {
+    "iAmClient": "Men mijozman",
+    "iAmBarber": "Men ustaman",
+    "comingSoon": "Tez kunda"
+  },
+  "language": {
+    "label": "Til",
+    "ru": "Русский",
+    "uz": "O‘zbekcha",
+    "en": "English"
+  },
+  "footer": {
+    "copyright": "© 2026 Hayrli",
+    "tagline": "O‘zbekistonda ustalarga yozilish.",
+    "columns": {
+      "product": "Mahsulot",
+      "company": "Kompaniya",
+      "legal": "Huquqiy"
+    },
+    "links": {
+      "hayrli": "Hayrli",
+      "hayrliPro": "Hayrli Pro",
+      "about": "Biz haqimizda",
+      "contacts": "Kontaktlar",
+      "privacy": "Maxfiylik siyosati",
+      "terms": "Foydalanish shartlari"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "youtube": "YouTube"
+    }
+  },
+  "forClients": {
+    "title": "Hayrli. Ustani 30 soniyada top.",
+    "subtitle": "Sevimli sartarosh, manikyur ustasi yoki stilist — bitta ilovada. Qo‘ng‘iroq va daftarsiz.",
+    "howItWorks": {
+      "eyebrow": "Qanday ishlaydi",
+      "steps": [
+        {
+          "title": "Hayrli ni och",
+          "description": "Ilovani yukla va geolokatsiyaga ruxsat ber — yaqin atrofdagi ustalarni ko‘rsatamiz."
+        },
+        {
+          "title": "Ustani tanla",
+          "description": "Portfolio, narxlar va haqiqiy izohlarni ko‘r. Ishonch bilan tanla."
+        },
+        {
+          "title": "Yozil va kel",
+          "description": "Bo‘sh vaqtga bir tegish bilan yozil. Kunidan oldin eslatamiz, unutilmasin."
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Ichida nima bor",
+      "items": {
+        "geo": {
+          "title": "Geolokatsiya bo‘yicha qidiruv",
+          "description": "Yaqindagi ustalar — masofa va reyting bo‘yicha tartiblangan."
+        },
+        "reviews": {
+          "title": "Haqiqiy izohlar",
+          "description": "Faqat haqiqatan qabulda bo‘lgan mijozlardan."
+        },
+        "online": {
+          "title": "Onlayn yozilish 24/7",
+          "description": "Istalgan vaqtda yozilish — kechasi ham, yakshanba ham."
+        },
+        "history": {
+          "title": "Tashriflar tarixi",
+          "description": "Barcha o‘tgan yozilishlar va sevimli ustalar doim qo‘l ostida."
+        }
+      }
+    },
+    "screens": {
+      "eyebrow": "Ilova qanday ko‘rinishda",
+      "items": {
+        "home": "Bosh ekran",
+        "barber": "Usta kartasi",
+        "confirm": "Tasdiqlash"
+      }
+    },
+    "cta": {
+      "title": "Hayrli ni yuklash",
+      "appStoreSmall": "Yuklab oling",
+      "appStoreBig": "App Store",
+      "appStoreAria": "App Store dan yuklab olish",
+      "googlePlaySmall": "Mavjud",
+      "googlePlayBig": "Google Play",
+      "googlePlayAria": "Google Play da mavjud"
+    }
+  },
+  "forBarbers": {
+    "eyebrow": "Hayrli Pro",
+    "title": "Kalendarni to‘ldir. Mijozlarni yo‘qotma.",
+    "subtitle": "Ustalar uchun CRM, jadval va avto-eslatmalar. Telefon bilan kamroq ish — mijoz bilan ko‘proq ish.",
+    "valueProps": {
+      "eyebrow": "Siz nima olasiz",
+      "items": {
+        "calendar": {
+          "title": "Daftarsiz kalendar",
+          "description": "Barcha yozilishlar bir joyda. Qog‘ozlar va o‘tkazib yuborilgan vaqtlar yo‘q."
+        },
+        "clients": {
+          "title": "Mijozlar bazasi",
+          "description": "Tashriflar tarixi va sevimli xizmatlar — mijoz qaytadi, siz eslaysiz."
+        },
+        "reminders": {
+          "title": "Avto-eslatmalar",
+          "description": "Mijozlar tez-tez keladi: tashrifdan bir kun va bir soat oldin SMS va push."
+        },
+        "analytics": {
+          "title": "Analitika",
+          "description": "Tushum, bandlik, ushlab qolish — hafta va oy bo‘yicha aniq raqamlar."
+        }
+      }
+    },
+    "screens": {
+      "eyebrow": "Pro ilova",
+      "items": {
+        "dashboard": "Boshqaruv paneli",
+        "schedule": "Kun jadvali",
+        "client": "Mijoz kartasi"
+      }
+    },
+    "form": {
+      "title": "Hamkor bo‘lish",
+      "subtitle": "Ariza qoldiring — kun davomida bog‘lanamiz va saloningiz uchun Hayrli Pro ni sozlashga yordam beramiz.",
+      "fields": {
+        "name": "Ism",
+        "phone": "Telefon",
+        "city": "Shahar"
+      },
+      "placeholders": {
+        "name": "Ismingiz",
+        "city": "Toshkent"
+      },
+      "errors": {
+        "name": "Ismni kiriting — kamida 2 ta belgi",
+        "phone": "Telefon +998XXXXXXXXX formatida bo‘lsin",
+        "city": "Shaharni ko‘rsating",
+        "validation": "Kiritilgan ma’lumotlarni tekshiring",
+        "rateLimit": "Juda ko‘p ariza, birozdan so‘ng urinib ko‘ring",
+        "network": "Yuborib bo‘lmadi, qaytadan urinib ko‘ring",
+        "generic": "Xatolik yuz berdi. Qaytadan urinib ko‘ring"
+      },
+      "submit": "Ariza yuborish",
+      "submitting": "Yuborilmoqda...",
+      "honeypotLabel": "Website",
+      "success": "Rahmat! Kun davomida siz bilan bog‘lanamiz."
+    }
+  },
+  "faq": {
+    "title": "Tez-tez beriladigan savollar",
+    "tabs": {
+      "all": "Hammasi",
+      "clients": "Mijozlar",
+      "barbers": "Ustalar"
+    },
+    "questions": {
+      "clients": [
+        {
+          "q": "Hayrli orqali yozilish qancha turadi?",
+          "a": "Ilova bepul. Siz faqat xizmat uchun to‘laysiz — usta belgilagan narxda."
+        },
+        {
+          "q": "Yozilishni qanday bekor qilish yoki ko‘chirish mumkin?",
+          "a": "«Mening tashriflarim» bo‘limida — bir tegish bilan bekor qilish va ko‘chirish. Tashrifdan kamida 2 soat oldin qiling, usta kunni qayta rejalashtira olsin."
+        },
+        {
+          "q": "Ilova orqali to‘lash xavfsizmi?",
+          "a": "To‘lov sertifikatlangan provayderlar orqali amalga oshiriladi. Karta ma’lumotlarini saqlamaymiz — ular to‘lov shlyuzida shifrlanadi."
+        },
+        {
+          "q": "Izoh qoldirish mumkinmi?",
+          "a": "Ha, tashrifdan keyin sizga bildirishnoma keladi. Ustani baholash va izoh yozish 7 kun ichida mumkin."
+        },
+        {
+          "q": "Yaqin atrofdagi ustani qanday topaman?",
+          "a": "Geolokatsiyaga ruxsat bering — lentada masofa, reyting va yaqin kunlardagi bo‘sh vaqtlar bo‘yicha tartiblangan ustalar paydo bo‘ladi."
+        }
+      ],
+      "barbers": [
+        {
+          "q": "Hayrli Pro qancha turadi?",
+          "a": "Birinchi oy bepul. Keyin — yozilishlardan foiz olmaydigan qat’iy obuna. Aniq narxni ulanishda menejer aytadi."
+        },
+        {
+          "q": "Mijozlardan to‘lovni qanday qabul qilaman?",
+          "a": "Tanlovingizga ko‘ra: joyda naqd, kartaga o‘tkazma yoki ilova orqali onlayn to‘lov. Barcha onlayn to‘lovlar avtomatik tarzda hisobotga tushadi."
+        },
+        {
+          "q": "Mijoz kelmasa nima bo‘ladi?",
+          "a": "Yozilishni «no-show» deb belgilaysiz. Mijoz eslatma oladi, bir nechta o‘tkazib yuborishdan keyin yangi ustalarga tezda yozilish cheklanadi."
+        },
+        {
+          "q": "Mijozlar bazasini import qilish mumkinmi?",
+          "a": "Ha, Excel, Google Kontaktlar yoki joriy CRM dan. Ulanishda menejer ko‘chirishga yordam beradi — odatda bir kechda bajariladi."
+        },
+        {
+          "q": "Pro ning iOS versiyasi qachon chiqadi?",
+          "a": "Android versiyasi so‘rov bo‘yicha allaqachon mavjud. iOS — yakuniy test bosqichida, App Store da chiqishi shu chorakka rejalashtirilgan."
+        }
+      ]
+    }
+  }
+}

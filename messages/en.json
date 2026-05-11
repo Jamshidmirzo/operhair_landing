@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "Hayrli — book a barber, fill your calendar",
+    "description": "Hayrli is the booking app for barbers in Uzbekistan. Hayrli Pro is for barbers themselves."
+  },
+  "nav": {
+    "forClients": "For clients",
+    "forBarbers": "For barbers",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "headlineLine1": "Book a barber.",
+    "headlineLine2": "Fill your calendar.",
+    "sub": "Hayrli is the app for booking barbers. Hayrli Pro is for the barbers themselves.",
+    "visualAlt": "Hayrli app preview"
+  },
+  "cta": {
+    "download": "Download",
+    "downloadHayrli": "Download Hayrli",
+    "becomePartner": "Become a partner",
+    "openMenu": "Open menu"
+  },
+  "tabs": {
+    "iAmClient": "I'm a client",
+    "iAmBarber": "I'm a barber",
+    "comingSoon": "Coming soon"
+  },
+  "language": {
+    "label": "Language",
+    "ru": "Русский",
+    "uz": "O‘zbekcha",
+    "en": "English"
+  },
+  "footer": {
+    "copyright": "© 2026 Hayrli",
+    "tagline": "Booking barbers in Uzbekistan.",
+    "columns": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "links": {
+      "hayrli": "Hayrli",
+      "hayrliPro": "Hayrli Pro",
+      "about": "About",
+      "contacts": "Contacts",
+      "privacy": "Privacy policy",
+      "terms": "Terms of service"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "youtube": "YouTube"
+    }
+  },
+  "forClients": {
+    "title": "Hayrli. Find a barber in 30 seconds.",
+    "subtitle": "Your favourite barber, nail tech or stylist — in one app. No phone calls, no notebooks.",
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "steps": [
+        {
+          "title": "Open Hayrli",
+          "description": "Install the app and allow location access — we'll show you the best people nearby."
+        },
+        {
+          "title": "Pick a barber",
+          "description": "Browse portfolios, prices and real reviews. Choose with confidence."
+        },
+        {
+          "title": "Book and show up",
+          "description": "Grab a free slot in one tap. We'll remind you the day before so you don't forget."
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Inside the app",
+      "items": {
+        "geo": {
+          "title": "Location-based search",
+          "description": "Pros nearby, sorted by distance and rating."
+        },
+        "reviews": {
+          "title": "Real reviews",
+          "description": "Only from clients who actually showed up to their appointment."
+        },
+        "online": {
+          "title": "Online booking 24/7",
+          "description": "Book anytime — late at night, on a Sunday, whenever you need."
+        },
+        "history": {
+          "title": "Visit history",
+          "description": "Past appointments and favourite pros are always one tap away."
+        }
+      }
+    },
+    "screens": {
+      "eyebrow": "What it looks like",
+      "items": {
+        "home": "Home screen",
+        "barber": "Barber profile",
+        "confirm": "Confirmation"
+      }
+    },
+    "cta": {
+      "title": "Download Hayrli",
+      "appStoreSmall": "Download on the",
+      "appStoreBig": "App Store",
+      "appStoreAria": "Download on the App Store",
+      "googlePlaySmall": "Get it on",
+      "googlePlayBig": "Google Play",
+      "googlePlayAria": "Get it on Google Play"
+    }
+  },
+  "forBarbers": {
+    "eyebrow": "Hayrli Pro",
+    "title": "Fill your calendar. Stop losing clients.",
+    "subtitle": "CRM, scheduling and automatic reminders for barbers. Less time on the phone — more time on the chair.",
+    "valueProps": {
+      "eyebrow": "What you get",
+      "items": {
+        "calendar": {
+          "title": "Calendar without a notebook",
+          "description": "Every booking in one place. No paper notes, no missed slots."
+        },
+        "clients": {
+          "title": "Client database",
+          "description": "Visit history and favourite services — clients return, you remember."
+        },
+        "reminders": {
+          "title": "Automatic reminders",
+          "description": "Clients show up more often: SMS and push a day and an hour before."
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Revenue, utilisation, retention — clear numbers by week and month."
+        }
+      }
+    },
+    "screens": {
+      "eyebrow": "Pro app",
+      "items": {
+        "dashboard": "Dashboard",
+        "schedule": "Day schedule",
+        "client": "Client profile"
+      }
+    },
+    "form": {
+      "title": "Become a partner",
+      "subtitle": "Leave a request — we'll get in touch within a day and help you set up Hayrli Pro for your shop.",
+      "fields": {
+        "name": "Name",
+        "phone": "Phone",
+        "city": "City"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "city": "Tashkent"
+      },
+      "errors": {
+        "name": "Enter your name — at least 2 characters",
+        "phone": "Phone must match +998XXXXXXXXX",
+        "city": "Please enter your city",
+        "validation": "Please check the form fields",
+        "rateLimit": "Too many requests, please try again later",
+        "network": "Could not send the request, please try again",
+        "generic": "Something went wrong. Please try again"
+      },
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "honeypotLabel": "Website",
+      "success": "Thanks! We'll get in touch within a day."
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "tabs": {
+      "all": "All",
+      "clients": "Clients",
+      "barbers": "Barbers"
+    },
+    "questions": {
+      "clients": [
+        {
+          "q": "How much does booking through Hayrli cost?",
+          "a": "The app is free. You only pay for the service itself, at the price set by the barber."
+        },
+        {
+          "q": "How do I cancel or reschedule?",
+          "a": "From “My visits” — cancel and reschedule with one tap. Please do it at least 2 hours ahead so the barber can replan their day."
+        },
+        {
+          "q": "Is paying through the app safe?",
+          "a": "Payments go through certified providers. We don't store your card details — they're encrypted on the payment gateway side."
+        },
+        {
+          "q": "Can I leave a review?",
+          "a": "Yes. After your visit you'll get a notification — you can rate the barber and leave a review within 7 days."
+        },
+        {
+          "q": "How do I find a barber nearby?",
+          "a": "Allow location access — the feed will show barbers sorted by distance, rating and free slots over the next few days."
+        }
+      ],
+      "barbers": [
+        {
+          "q": "How much does Hayrli Pro cost?",
+          "a": "First month is free. After that — a flat subscription with no commission on bookings. Your manager will share the exact price during onboarding."
+        },
+        {
+          "q": "How do I accept payments?",
+          "a": "Your choice: cash on site, card transfer, or in-app online payment. Online payments land in your reports automatically."
+        },
+        {
+          "q": "What if a client doesn't show up?",
+          "a": "Mark the booking as “no-show”. The client gets a reminder, and after a few misses they're rate-limited from quick-booking new barbers."
+        },
+        {
+          "q": "Can I import an existing client base?",
+          "a": "Yes — from Excel, Google Contacts or your current CRM. Your manager will help with the migration during onboarding; it usually takes one evening."
+        },
+        {
+          "q": "When is the iOS version of Pro coming?",
+          "a": "The Android version is already available on request. iOS is in final testing — App Store release is planned this quarter."
+        }
+      ]
+    }
+  }
+}
