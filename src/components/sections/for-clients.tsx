@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Clock, History, MapPin, Star } from "lucide-react";
 
@@ -10,7 +11,11 @@ const FEATURES = [
   { key: "history", Icon: History },
 ] as const;
 
-const SCREENS = ["home", "barber", "confirm"] as const;
+const SCREENS = [
+  { key: "home", src: "/screenshots/client-home.png" },
+  { key: "barber", src: "/screenshots/client-barber.png" },
+  { key: "confirm", src: "/screenshots/client-confirm.png" },
+] as const;
 
 /**
  * For Clients — light-themed section pitching the Hayrli consumer app.
@@ -116,23 +121,30 @@ export function ForClients() {
               {t("screens.eyebrow")}
             </h3>
           </Reveal>
-          <div className="mt-8 -mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:px-0 sm:overflow-visible">
-            <div className="flex gap-6 sm:grid sm:grid-cols-3">
-              {SCREENS.map((key, i) => (
-                <Reveal key={key} delay={0.1 + i * 0.1}>
-                  <figure className="flex w-[260px] shrink-0 flex-col items-center sm:w-auto">
-                    <div
-                      className="aspect-[9/19] w-full rounded-[2rem] bg-gradient-to-b from-slate-100 to-slate-200 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80"
-                      role="img"
-                      aria-label={t(`screens.items.${key}`)}
+          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
+            {SCREENS.map((screen, i) => (
+              <Reveal key={screen.key} delay={0.1 + i * 0.1}>
+                <figure className="flex flex-col items-center">
+                  <div className="relative aspect-[9/19] w-[260px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80 sm:w-full">
+                    <Image
+                      src={screen.src}
+                      alt={t(`screens.items.${screen.key}`)}
+                      fill
+                      className="object-cover blur-[8px] scale-[1.02]"
+                      sizes="(max-width: 640px) 260px, 33vw"
                     />
-                    <figcaption className="mt-4 text-sm font-light text-muted-foreground">
-                      {t(`screens.items.${key}`)}
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </div>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                      <span className="rounded-full bg-white/90 px-5 py-2 text-xs font-semibold tracking-wide text-slate-800 uppercase shadow-lg backdrop-blur-sm">
+                        {tabs("comingSoon")}
+                      </span>
+                    </div>
+                  </div>
+                  <figcaption className="mt-4 text-sm font-light text-muted-foreground">
+                    {t(`screens.items.${screen.key}`)}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
 

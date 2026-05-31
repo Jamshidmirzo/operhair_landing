@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -59,12 +60,37 @@ export function Hero() {
         </HeroFade>
 
         <HeroFade delay={0.35} className="mt-16 w-full">
-          <div
-            role="img"
-            aria-label={t("hero.visualAlt")}
-            className="relative mx-auto aspect-[16/9] w-full max-w-3xl rounded-[2rem] border border-border/60 bg-gradient-to-b from-muted/60 to-muted/20 shadow-[0_50px_120px_-40px_rgba(15,23,42,0.18)]"
-          >
-            {/* Placeholder. Real screenshots/mockups land in a later task. */}
+          <div className="mx-auto flex max-w-3xl items-end justify-center gap-4 sm:gap-8">
+            <div className="relative hidden aspect-[9/19] w-[180px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-20px_rgba(15,23,42,0.3)] ring-1 ring-border/60 sm:block">
+              <Image
+                src="/screenshots/client-barber.png"
+                alt={t("hero.visualAlt")}
+                fill
+                className="object-cover blur-[6px]"
+                sizes="180px"
+                priority
+              />
+            </div>
+            <div className="relative aspect-[9/19] w-[220px] overflow-hidden rounded-[2.5rem] shadow-[0_50px_120px_-40px_rgba(15,23,42,0.4)] ring-1 ring-border/60 sm:w-[240px]">
+              <Image
+                src="/screenshots/client-home.png"
+                alt={t("hero.visualAlt")}
+                fill
+                className="object-cover blur-[6px]"
+                sizes="240px"
+                priority
+              />
+            </div>
+            <div className="relative hidden aspect-[9/19] w-[180px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-20px_rgba(15,23,42,0.3)] ring-1 ring-border/60 sm:block">
+              <Image
+                src="/screenshots/client-confirm.png"
+                alt={t("hero.visualAlt")}
+                fill
+                className="object-cover blur-[6px]"
+                sizes="180px"
+                priority
+              />
+            </div>
           </div>
         </HeroFade>
       </div>

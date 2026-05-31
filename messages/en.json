@@ -147,6 +147,12 @@
         "client": "Client profile"
       }
     },
+    "download": {
+      "title": "Download Hayrli Pro",
+      "subtitle": "Manage bookings, clients and schedule — all in one app.",
+      "appStoreSmall": "Download on the",
+      "googlePlaySmall": "Available on"
+    },
     "form": {
       "title": "Become a partner",
       "subtitle": "Leave a request — we'll get in touch within a day and help you set up Hayrli Pro for your shop.",

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <!-- Icon square -->
+  <rect x="0" y="4" width="72" height="72" rx="16" fill="#0f172a"/>
+  <text x="36" y="52" text-anchor="middle" font-family="SF Pro Display, -apple-system, Helvetica Neue, sans-serif" font-size="44" font-weight="300" fill="#f8fafc" letter-spacing="-2">h</text>
+  <rect x="48" y="16" width="28" height="13" rx="6.5" fill="#f8fafc"/>
+  <text x="62" y="26" text-anchor="middle" font-family="SF Pro Display, -apple-system, Helvetica Neue, sans-serif" font-size="7" font-weight="600" fill="#0f172a" letter-spacing="1.5">PRO</text>
+
+  <!-- Wordmark -->
+  <text x="92" y="52" font-family="SF Pro Display, -apple-system, Helvetica Neue, sans-serif" font-size="38" font-weight="300" fill="#0f172a" letter-spacing="-1">hayrli</text>
+  <text x="232" y="52" font-family="SF Pro Display, -apple-system, Helvetica Neue, sans-serif" font-size="38" font-weight="500" fill="#0f172a" letter-spacing="-1">pro</text>
+</svg>

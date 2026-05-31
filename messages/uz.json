@@ -147,8 +147,14 @@
         "client": "Mijoz kartasi"
       }
     },
+    "download": {
+      "title": "Hayrli Pro-ni yuklab olish",
+      "subtitle": "Yozuvlar, mijozlar va jadval — hammasi bitta ilovada.",
+      "appStoreSmall": "Yuklab oling",
+      "googlePlaySmall": "Mavjud"
+    },
     "form": {
-      "title": "Hamkor bo‘lish",
+      "title": "Hamkor bo’lish",
       "subtitle": "Ariza qoldiring — kun davomida bog‘lanamiz va saloningiz uchun Hayrli Pro ni sozlashga yordam beramiz.",
       "fields": {
         "name": "Ism",
