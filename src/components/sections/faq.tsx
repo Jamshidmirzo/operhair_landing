@@ -33,7 +33,7 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="border-t border-border/60 bg-white px-6 py-24 sm:py-32"
+      className="border-t border-border/60 bg-background px-6 py-24 sm:py-32"
     >
       <div className="mx-auto flex w-full max-w-3xl flex-col">
         <Reveal>

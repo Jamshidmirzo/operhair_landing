@@ -29,15 +29,24 @@ export function ForBarbers() {
   return (
     <section
       id="for-barbers"
-      className="bg-slate-950 px-6 py-24 text-slate-100 sm:py-32"
+      className="bg-slate-950 px-6 py-24 text-slate-100 sm:py-32 dark:bg-[#0a0a0a]"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         {/* Header */}
         <div className="max-w-3xl">
           <Reveal>
-            <p className="text-xs font-medium tracking-[0.3em] text-slate-400 uppercase">
-              {t("eyebrow")}
-            </p>
+            <div className="mb-6 flex items-center gap-3">
+              <Image
+                src="/logo-hayrli-pro.jpg"
+                alt="Hayrli Pro"
+                width={48}
+                height={48}
+                className="rounded-xl"
+              />
+              <p className="text-xs font-medium tracking-[0.3em] text-slate-400 uppercase">
+                {t("eyebrow")}
+              </p>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <h2

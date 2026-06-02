@@ -29,26 +29,34 @@ export function ForClients() {
   return (
     <section
       id="for-clients"
-      className="border-t border-border/60 bg-white px-6 py-24 sm:py-32"
+      className="border-t border-border/60 bg-background px-6 py-24 sm:py-32"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         {/* Header */}
         <div className="max-w-3xl">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-3">
-              <h2
-                className="font-sans font-light tracking-tight text-foreground"
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 3.75rem)",
-                  lineHeight: 1.05,
-                }}
-              >
-                {t("title")}
-              </h2>
+
+            <div className="mb-6 flex items-center gap-3">
+              <Image
+                src="/logo-hayrli.jpg"
+                alt="Hayrli"
+                width={48}
+                height={48}
+                className="rounded-xl"
+              />
               <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-medium tracking-wide text-amber-800 uppercase">
                 {tabs("comingSoon")}
               </span>
             </div>
+            <h2
+              className="font-sans font-light tracking-tight text-foreground"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.75rem)",
+                lineHeight: 1.05,
+              }}
+            >
+              {t("title")}
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-base font-light text-muted-foreground sm:text-lg">
@@ -67,9 +75,9 @@ export function ForClients() {
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[0, 1, 2].map((i) => (
               <Reveal key={i} delay={0.1 + i * 0.1}>
-                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-slate-50 p-8">
+                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-muted p-8">
                   <span
-                    className="font-sans font-thin text-slate-300"
+                    className="font-sans font-thin text-muted-foreground/40"
                     style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", lineHeight: 1 }}
                   >
                     {i + 1}
@@ -96,7 +104,7 @@ export function ForClients() {
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {FEATURES.map((feat, i) => (
               <Reveal key={feat.key} delay={0.1 + i * 0.1}>
-                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-white p-8">
+                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8">
                   <feat.Icon
                     aria-hidden
                     className="size-6 text-foreground"
@@ -125,7 +133,7 @@ export function ForClients() {
             {SCREENS.map((screen, i) => (
               <Reveal key={screen.key} delay={0.1 + i * 0.1}>
                 <figure className="flex flex-col items-center">
-                  <div className="relative aspect-[9/19] w-[260px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80 sm:w-full">
+                  <div className="relative aspect-[9/19] w-[260px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] ring-1 ring-border sm:w-full">
                     <Image
                       src={screen.src}
                       alt={t(`screens.items.${screen.key}`)}

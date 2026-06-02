@@ -16,6 +16,7 @@ import {
 import { cn } from "@/lib/utils";
 
 import { LanguageSwitcher } from "./language-switcher";
+import { ThemeToggle } from "./theme-toggle";
 import { Wordmark } from "./wordmark";
 
 const NAV_ITEMS = [
@@ -71,6 +72,7 @@ export function Header() {
         {/* Right: lang + cta (desktop) / hamburger (mobile) */}
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-1 md:flex">
+            <ThemeToggle />
             <LanguageSwitcher />
             <Button
               size="sm"
@@ -116,7 +118,10 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-border px-4 py-4">
-                  <LanguageSwitcher />
+                  <div className="flex items-center gap-1">
+                    <ThemeToggle />
+                    <LanguageSwitcher />
+                  </div>
                   <Button
                     size="sm"
                     className="rounded-full px-4"
