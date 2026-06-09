@@ -89,12 +89,12 @@ export function PartnerForm() {
         return;
       }
 
-      // Map backend status codes to user-facing messages.
-      if (res.status === 422) {
+      // Map API status codes to user-facing messages.
+      if (res.status === 400 || res.status === 422) {
         setSubmitError(t("errors.validation"));
       } else if (res.status === 429) {
         setSubmitError(t("errors.rateLimit"));
-      } else if (res.status === 503) {
+      } else if (res.status === 502 || res.status === 503) {
         setSubmitError(t("errors.network"));
       } else {
         setSubmitError(t("errors.generic"));
