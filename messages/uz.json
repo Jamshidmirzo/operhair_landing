@@ -3,6 +3,17 @@
     "title": "Hayrli — ustaga yoz, kalendarni to‘ldir",
     "description": "Hayrli — O‘zbekistondagi ustalarga yozilish ilovasi. Hayrli Pro — ustalar uchun."
   },
+  "masterPage": {
+    "openInApp": "Hayrli ilovasida ochish",
+    "storeHelper": "Agar ilova hali o‘rnatilmagan bo‘lsa",
+    "footer": "Hayrli — ustalar va mijozlar klubi",
+    "reviewCount": "{count, plural, one {# fikr} other {# fikr}}",
+    "notFound": {
+      "title": "Usta topilmadi",
+      "description": "Ehtimol, havola eskirgan. Ustani ilovada topish uchun Hayrli’ni yuklab oling.",
+      "cta": "Bosh sahifaga"
+    }
+  },
   "nav": {
     "forClients": "Mijozlar uchun",
     "forBarbers": "Ustalar uchun",

@@ -3,6 +3,17 @@
     "title": "Hayrli — book a barber, fill your calendar",
     "description": "Hayrli is the booking app for barbers in Uzbekistan. Hayrli Pro is for barbers themselves."
   },
+  "masterPage": {
+    "openInApp": "Open in Hayrli",
+    "storeHelper": "Don't have the app yet?",
+    "footer": "Hayrli — the club for barbers and clients",
+    "reviewCount": "{count, plural, one {# review} other {# reviews}}",
+    "notFound": {
+      "title": "Master not found",
+      "description": "This link may have expired. Download Hayrli to find the master in the app.",
+      "cta": "Go to home"
+    }
+  },
   "nav": {
     "forClients": "For clients",
     "forBarbers": "For barbers",

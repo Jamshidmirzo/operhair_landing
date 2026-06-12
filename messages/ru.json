@@ -3,6 +3,17 @@
     "title": "Hayrli — запиши мастера, заполни календарь",
     "description": "Hayrli — приложение для записи к мастерам в Узбекистане. Hayrli Pro — для самих мастеров."
   },
+  "masterPage": {
+    "openInApp": "Открыть в Hayrli",
+    "storeHelper": "Если приложение ещё не установлено",
+    "footer": "Hayrli — клуб мастеров и клиентов",
+    "reviewCount": "{count, plural, one {# отзыв} few {# отзыва} other {# отзывов}}",
+    "notFound": {
+      "title": "Мастер не найден",
+      "description": "Возможно, ссылка устарела. Скачайте Hayrli, чтобы найти мастера в приложении.",
+      "cta": "На главную"
+    }
+  },
   "nav": {
     "forClients": "Для клиентов",
     "forBarbers": "Для мастеров",
