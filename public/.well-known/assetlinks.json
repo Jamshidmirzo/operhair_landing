@@ -1,0 +1,28 @@
+[
+  {
+    "_comment": "TODO: replace SHA256 placeholders with the real release-keystore fingerprints. Until then Android App Links autoVerify will FAIL and `https://hayrli.app/m/<id>` will open in the browser instead of the apps. Generate with: keytool -list -v -keystore <release.keystore> -alias <alias>",
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "flek.hayrli.pro.app",
+      "sha256_cert_fingerprints": [
+        "TODO:REPLACE_WITH_HAYRLI_PRO_RELEASE_SHA256"
+      ]
+    }
+  },
+  {
+    "_comment": "TODO: replace once the client app has a release keystore.",
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uz.hayrli.client",
+      "sha256_cert_fingerprints": [
+        "TODO:REPLACE_WITH_HAYRLI_CLIENT_RELEASE_SHA256"
+      ]
+    }
+  }
+]
