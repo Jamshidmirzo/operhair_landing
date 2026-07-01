@@ -23,16 +23,6 @@ const SECURITY_HEADERS = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        // Route any {slug}.hayrli.app request to the salon-site page
-        source: "/:path*",
-        has: [{ type: "host", value: "(?<slug>[a-z0-9-]+)\\.hayrli\\.app" }],
-        destination: "/salon-site?slug=:slug",
-      },
-    ];
-  },
   async headers() {
     return [
       {
