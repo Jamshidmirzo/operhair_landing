@@ -9,7 +9,10 @@ const intlProxy = createMiddleware(routing);
 const SALON_HOST_RE = /^([a-z0-9-]+)\.hayrli\.app$/i;
 
 export function proxy(request: NextRequest): NextResponse {
-  const host = request.headers.get("host") ?? "";
+  const host =
+    request.headers.get("x-forwarded-host") ??
+    request.headers.get("host") ??
+    request.nextUrl.hostname;
   const match = host.match(SALON_HOST_RE);
 
   if (match) {
