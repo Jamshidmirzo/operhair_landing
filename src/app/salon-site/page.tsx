@@ -9,6 +9,15 @@ const API_BASE =
 
 type SiteService = { name: string; description: string };
 
+type StyleConfig = {
+  primary?: string;
+  primary_fg?: string;
+  background?: string;
+  foreground?: string;
+  muted?: string;
+  muted_fg?: string;
+};
+
 type SiteContent = {
   heading?: string;
   subheading?: string;
@@ -16,6 +25,7 @@ type SiteContent = {
   services?: SiteService[];
   cta?: { title?: string; button?: string };
   style?: string;
+  style_config?: StyleConfig;
 };
 
 type Salon = {
@@ -83,6 +93,48 @@ export async function generateMetadata({
   };
 }
 
+// ── Style config helpers ──────────────────────────────────────────────────────
+
+function hexToHslChannels(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0;
+  let s = 0;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
+}
+
+const HEX_RE = /^#[0-9A-Fa-f]{6}$/;
+
+function buildThemeCss(cfg: StyleConfig | undefined): string {
+  if (!cfg) return "";
+  const safe = (v: string | undefined, fb: string) =>
+    v && HEX_RE.test(v) ? hexToHslChannels(v) : hexToHslChannels(fb);
+  return `.salon-theme {
+    --primary: ${safe(cfg.primary, "#F59E0B")};
+    --primary-foreground: ${safe(cfg.primary_fg, "#FFFFFF")};
+    --background: ${safe(cfg.background, "#FFFFFF")};
+    --foreground: ${safe(cfg.foreground, "#111827")};
+    --muted: ${safe(cfg.muted, "#F3F4F6")};
+    --muted-foreground: ${safe(cfg.muted_fg, "#6B7280")};
+    --border: ${safe(cfg.muted, "#E5E7EB")};
+    --card: ${safe(cfg.muted, "#F3F4F6")};
+    --card-foreground: ${safe(cfg.foreground, "#111827")};
+  }`;
+}
+
 // ── Working hours helper ──────────────────────────────────────────────────────
 
 const DAY_NAMES: Record<string, string> = {
@@ -147,9 +199,14 @@ export default async function SalonSitePage({
   const ctaButton = sc.cta?.button ?? "Открыть в приложении";
   const hours = formatHours(salon.working_hours);
   const bookingLink = `hayrli://salon/${slug}`;
+  const themeCss = buildThemeCss(sc.style_config);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
+      {themeCss && (
+        <style dangerouslySetInnerHTML={{ __html: themeCss }} />
+      )}
+    <div className={`min-h-screen bg-background text-foreground${themeCss ? " salon-theme" : ""}`}>
       {/* Hero */}
       <section className="relative flex min-h-[420px] items-end overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
         {salon.cover_url && (
@@ -268,6 +325,7 @@ export default async function SalonSitePage({
         </footer>
       </div>
     </div>
+    </>
   );
 }
 
