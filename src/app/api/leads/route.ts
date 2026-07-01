@@ -40,8 +40,14 @@ const RATE_MAX = 5;
 const ipHits = new Map<string, number[]>();
 
 function clientIp(request: NextRequest): string {
-  const xff = request.headers.get("x-forwarded-for");
-  if (xff) return xff.split(",")[0]!.trim();
+  // Vercel sets `x-vercel-forwarded-for` at the edge — clients cannot override it.
+  // Other reverse proxies typically use `x-real-ip`.
+  // Raw `x-forwarded-for` is intentionally NOT consulted: when the route is hit
+  // directly (dev tunnel, self-hosted, mis-routed), clients can set it freely,
+  // which would let an attacker spoof IPs to bypass rate-limit and pollute the
+  // Telegram alert.
+  const vercel = request.headers.get("x-vercel-forwarded-for");
+  if (vercel) return vercel.split(",")[0]!.trim();
   const real = request.headers.get("x-real-ip");
   if (real) return real;
   return "unknown";
