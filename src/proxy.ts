@@ -5,23 +5,17 @@ import { routing } from "@/i18n/routing";
 
 const intlProxy = createMiddleware(routing);
 
-// hostname is already stripped of port by nextUrl
 const SALON_HOST_RE = /^([a-z0-9-]+)\.hayrli\.app$/i;
 
 export function proxy(request: NextRequest): NextResponse {
-  const hostname = request.nextUrl.hostname;
-  const match = hostname.match(SALON_HOST_RE);
+  const hostname = request.nextUrl.hostname ?? "";
+  const match = SALON_HOST_RE.exec(hostname);
+  const slug = match?.[1];
 
-  if (match) {
-    const slug = match[1];
+  if (slug) {
     const { pathname } = request.nextUrl;
 
-    if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
-      return NextResponse.next();
-    }
-
-    // Skip rewrite if already on salon-site (avoid loop)
-    if (pathname === "/salon-site") {
+    if (pathname.startsWith("/_next") || pathname.startsWith("/api") || pathname === "/salon-site") {
       return NextResponse.next();
     }
 
@@ -35,6 +29,5 @@ export function proxy(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  // Exclude salon-site from matcher so intl doesn't touch it
   matcher: ["/((?!api|_next|_vercel|salon-site|.*\\..*).*)"],
 };
