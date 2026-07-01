@@ -1,13 +1,36 @@
 import createMiddleware from "next-intl/middleware";
+import { type NextRequest, NextResponse } from "next/server";
 
 import { routing } from "@/i18n/routing";
 
-// Next.js 16 renamed `middleware.ts` to `proxy.ts`. The next-intl middleware
-// factory still works as the proxy function — it returns a `(NextRequest) =>
-// NextResponse` handler that the file convention expects.
-export const proxy = createMiddleware(routing);
+const intlProxy = createMiddleware(routing);
+
+// Matches {slug}.hayrli.app but NOT hayrli.app itself
+const SALON_HOST_RE = /^([a-z0-9-]+)\.hayrli\.app$/i;
+
+export function proxy(request: NextRequest): NextResponse {
+  const host = request.headers.get("host") ?? "";
+  const match = host.match(SALON_HOST_RE);
+
+  if (match) {
+    const slug = match[1];
+    const { pathname } = request.nextUrl;
+    if (
+      pathname.startsWith("/_next") ||
+      pathname.startsWith("/api") ||
+      pathname === "/favicon.ico"
+    ) {
+      return NextResponse.next();
+    }
+    const url = request.nextUrl.clone();
+    url.pathname = "/salon-site";
+    url.searchParams.set("slug", slug);
+    return NextResponse.rewrite(url);
+  }
+
+  return intlProxy(request) as NextResponse;
+}
 
 export const config = {
-  // Match all paths except API, static assets, and metadata files.
   matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };
