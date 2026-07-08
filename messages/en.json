@@ -35,8 +35,7 @@
   },
   "tabs": {
     "iAmClient": "I'm a client",
-    "iAmBarber": "I'm a barber",
-    "comingSoon": "Coming soon"
+    "iAmBarber": "I'm a barber"
   },
   "language": {
     "label": "Language",
@@ -239,8 +238,8 @@
           "a": "Yes — from Excel, Google Contacts or your current CRM. Your manager will help with the migration during onboarding; it usually takes one evening."
         },
         {
-          "q": "When is the iOS version of Pro coming?",
-          "a": "The Android version is already available on request. iOS is in final testing — App Store release is planned this quarter."
+          "q": "Where can I download Hayrli Pro?",
+          "a": "Hayrli Pro is available on the App Store and Google Play. Download the app, sign up as a master and start taking bookings."
         }
       ]
     }

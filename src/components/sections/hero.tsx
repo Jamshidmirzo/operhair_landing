@@ -44,9 +44,6 @@ export function Hero() {
               render={<a href="#for-clients" />}
             >
               {t("cta.downloadHayrli")}
-              <span className="ml-2 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium tracking-wide text-amber-800 uppercase">
-                {t("tabs.comingSoon")}
-              </span>
             </Button>
             <Button
               size="lg"
@@ -66,7 +63,7 @@ export function Hero() {
                 src="/screenshots/client-barber.png"
                 alt={t("hero.visualAlt")}
                 fill
-                className="object-cover blur-[6px]"
+                className="object-cover"
                 sizes="180px"
                 priority
               />
@@ -76,7 +73,7 @@ export function Hero() {
                 src="/screenshots/client-home.png"
                 alt={t("hero.visualAlt")}
                 fill
-                className="object-cover blur-[6px]"
+                className="object-cover"
                 sizes="240px"
                 priority
               />
@@ -86,7 +83,7 @@ export function Hero() {
                 src="/screenshots/client-confirm.png"
                 alt={t("hero.visualAlt")}
                 fill
-                className="object-cover blur-[6px]"
+                className="object-cover"
                 sizes="180px"
                 priority
               />

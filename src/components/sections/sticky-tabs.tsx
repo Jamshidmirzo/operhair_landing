@@ -106,11 +106,6 @@ export function StickyTabs() {
                 )}
               >
                 {t(tab.key)}
-                {tab.id === "for-clients" && (
-                  <span className="inline-flex items-center rounded-full bg-amber-100 px-1.5 py-0.5 text-[9px] font-medium tracking-wide text-amber-800 uppercase">
-                    {t("comingSoon")}
-                  </span>
-                )}
               </button>
             );
           })}

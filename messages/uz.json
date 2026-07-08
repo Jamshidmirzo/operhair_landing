@@ -35,8 +35,7 @@
   },
   "tabs": {
     "iAmClient": "Men mijozman",
-    "iAmBarber": "Men ustaman",
-    "comingSoon": "Tez kunda"
+    "iAmBarber": "Men ustaman"
   },
   "language": {
     "label": "Til",
@@ -239,8 +238,8 @@
           "a": "Ha, Excel, Google Kontaktlar yoki joriy CRM dan. Ulanishda menejer ko‘chirishga yordam beradi — odatda bir kechda bajariladi."
         },
         {
-          "q": "Pro ning iOS versiyasi qachon chiqadi?",
-          "a": "Android versiyasi so‘rov bo‘yicha allaqachon mavjud. iOS — yakuniy test bosqichida, App Store da chiqishi shu chorakka rejalashtirilgan."
+          "q": "Hayrli Pro ni qayerdan yuklab olsa bo‘ladi?",
+          "a": "Hayrli Pro App Store va Google Play da mavjud. Ilovani yuklab oling, usta sifatida ro‘yxatdan o‘ting va yozuvlarni qabul qilishni boshlang."
         }
       ]
     }

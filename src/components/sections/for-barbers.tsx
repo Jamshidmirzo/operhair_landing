@@ -171,7 +171,9 @@ export function ForBarbers() {
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=flek.hayrli.pro.app"
+                target="_blank"
+                rel="noreferrer"
                 className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-white px-5 text-slate-900 transition-opacity hover:opacity-90"
               >
                 <PlayGlyph aria-hidden className="size-7 shrink-0" />
@@ -183,7 +185,9 @@ export function ForBarbers() {
                 </span>
               </a>
               <a
-                href="#"
+                href="https://apps.apple.com/uz/app/hayrli-pro/id6778512406"
+                target="_blank"
+                rel="noreferrer"
                 className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-white px-5 text-slate-900 transition-opacity hover:opacity-90"
               >
                 <AppleGlyph aria-hidden className="size-7 shrink-0" />

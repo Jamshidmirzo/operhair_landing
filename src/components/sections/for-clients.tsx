@@ -24,7 +24,6 @@ const SCREENS = [
  */
 export function ForClients() {
   const t = useTranslations("forClients");
-  const tabs = useTranslations("tabs");
 
   return (
     <section
@@ -44,9 +43,6 @@ export function ForClients() {
                 height={48}
                 className="rounded-xl"
               />
-              <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-medium tracking-wide text-amber-800 uppercase">
-                {tabs("comingSoon")}
-              </span>
             </div>
             <h2
               className="font-sans font-light tracking-tight text-foreground"
@@ -138,14 +134,9 @@ export function ForClients() {
                       src={screen.src}
                       alt={t(`screens.items.${screen.key}`)}
                       fill
-                      className="object-cover blur-[8px] scale-[1.02]"
+                      className="object-cover"
                       sizes="(max-width: 640px) 260px, 33vw"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                      <span className="rounded-full bg-white/90 px-5 py-2 text-xs font-semibold tracking-wide text-slate-800 uppercase shadow-lg backdrop-blur-sm">
-                        {tabs("comingSoon")}
-                      </span>
-                    </div>
                   </div>
                   <figcaption className="mt-4 text-sm font-light text-muted-foreground">
                     {t(`screens.items.${screen.key}`)}
@@ -171,34 +162,40 @@ export function ForClients() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-              <div
+              <a
+                href="https://apps.apple.com/uz/app/hayrli/id6782782767"
+                target="_blank"
+                rel="noreferrer"
                 aria-label={t("cta.appStoreAria")}
-                className="flex h-14 w-56 cursor-not-allowed items-center justify-center gap-3 rounded-2xl bg-slate-400 px-5 text-white/80"
+                className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-foreground px-5 text-background transition-opacity hover:opacity-90"
               >
                 <AppleGlyph aria-hidden className="size-7 shrink-0" />
                 <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[10px] font-light tracking-wide text-slate-200 uppercase">
-                    {tabs("comingSoon")}
+                  <span className="text-[10px] font-light tracking-wide uppercase opacity-70">
+                    {t("cta.appStoreSmall")}
                   </span>
                   <span className="text-base font-medium">
                     {t("cta.appStoreBig")}
                   </span>
                 </span>
-              </div>
-              <div
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=flek.hayrli.app"
+                target="_blank"
+                rel="noreferrer"
                 aria-label={t("cta.googlePlayAria")}
-                className="flex h-14 w-56 cursor-not-allowed items-center justify-center gap-3 rounded-2xl bg-slate-400 px-5 text-white/80"
+                className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-foreground px-5 text-background transition-opacity hover:opacity-90"
               >
                 <PlayGlyph aria-hidden className="size-7 shrink-0" />
                 <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[10px] font-light tracking-wide text-slate-200 uppercase">
-                    {tabs("comingSoon")}
+                  <span className="text-[10px] font-light tracking-wide uppercase opacity-70">
+                    {t("cta.googlePlaySmall")}
                   </span>
                   <span className="text-base font-medium">
                     {t("cta.googlePlayBig")}
                   </span>
                 </span>
-              </div>
+              </a>
             </div>
           </Reveal>
         </div>

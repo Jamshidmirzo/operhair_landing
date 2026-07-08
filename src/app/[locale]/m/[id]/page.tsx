@@ -170,7 +170,7 @@ export default async function MasterFallbackPage({
 
         <div className="mt-3 grid w-full grid-cols-2 gap-3">
           <a
-            href="https://apps.apple.com/uz/app/hayrli/id0000000000"
+            href="https://apps.apple.com/uz/app/hayrli/id6782782767"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
@@ -178,7 +178,7 @@ export default async function MasterFallbackPage({
             App Store
           </a>
           <a
-            href="https://play.google.com/store/apps/details?id=uz.hayrli.client"
+            href="https://play.google.com/store/apps/details?id=flek.hayrli.app"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
