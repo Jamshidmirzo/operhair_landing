@@ -23,9 +23,11 @@
   },
   "hero": {
     "headlineLine1": "Ustaga yoz.",
-    "headlineLine2": "Kalendarni to‘ldir.",
-    "sub": "Hayrli — ustalarga yozilish uchun ilova. Hayrli Pro — ustalarning o‘zi uchun.",
-    "visualAlt": "Hayrli ilovasi ko‘rinishi"
+    "headlineLine2": "Kalendarni to’ldir.",
+    "sub": "Hayrli — ustalarga yozilish uchun ilova. Hayrli Pro — ustalarning o’zi uchun.",
+    "visualAlt": "Hayrli ilovasi ko’rinishi",
+    "appStore": "iOS uchun yuklab olish",
+    "googlePlay": "Android uchun yuklab olish"
   },
   "cta": {
     "download": "Yuklash",

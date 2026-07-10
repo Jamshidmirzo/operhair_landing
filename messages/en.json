@@ -25,7 +25,9 @@
     "headlineLine1": "Book a barber.",
     "headlineLine2": "Fill your calendar.",
     "sub": "Hayrli is the app for booking barbers. Hayrli Pro is for the barbers themselves.",
-    "visualAlt": "Hayrli app preview"
+    "visualAlt": "Hayrli app preview",
+    "appStore": "Download for iOS",
+    "googlePlay": "Download for Android"
   },
   "cta": {
     "download": "Download",

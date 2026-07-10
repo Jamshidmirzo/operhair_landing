@@ -25,7 +25,9 @@
     "headlineLine1": "Запиши мастера.",
     "headlineLine2": "Заполни календарь.",
     "sub": "Hayrli — приложение для записи к мастерам. Hayrli Pro — для самих мастеров.",
-    "visualAlt": "Превью приложения Hayrli"
+    "visualAlt": "Превью приложения Hayrli",
+    "appStore": "Скачать для iOS",
+    "googlePlay": "Скачать для Android"
   },
   "cta": {
     "download": "Скачать",
