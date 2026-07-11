@@ -22,8 +22,8 @@ const COLUMNS = [
   {
     titleKey: "legal",
     links: [
-      { key: "privacy", href: "#" },
-      { key: "terms", href: "#" },
+      { key: "privacy", href: "/privacy" },
+      { key: "terms", href: "/terms" },
     ],
   },
 ] as const;

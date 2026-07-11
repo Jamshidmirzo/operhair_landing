@@ -1,4 +1,119 @@
 {
+  "privacy": {
+    "title": "Maxfiylik siyosati",
+    "effectiveDate": "Kuchga kirish sanasi: 2026-yil 11-iyul",
+    "s1": {
+      "heading": "Biz kimiz",
+      "body": "Hayrli — O'zbekistondagi sartaroshlar va go'zallik ustalari bilan uchrashuvlar uchun marketplace. Xizmat Flek LLC kompaniyasi (quyida «biz») tomonidan ishlab chiqilgan. Hayrli Pro — ustalar uchun alohida ilova: jadval, mijozlar bazasi va portfolio boshqaruvi. Ushbu siyosat ikki ilova va hayrli.app sayti orqali foydalanganda ma'lumotlaringizni qanday yig'ishimiz, ishlatishimiz va himoya qilishimizni tushuntiradi."
+    },
+    "s2": {
+      "heading": "Qanday ma'lumotlar to'playmiz",
+      "intro": "Ro'yxatdan o'tish va xizmatdan foydalanish jarayonida quyidagi ma'lumotlarni to'plashimiz mumkin:",
+      "items": {
+        "phone": "Telefon raqami — kirish va SMS-tasdiqlash uchun.",
+        "name": "Ism va familiya — profilingiz va yozilishlarda ko'rsatish uchun.",
+        "city": "Shahar — yaqin atrofdagi ustalarni ko'rsatish uchun.",
+        "photo": "Profil rasmi va portfolio rasmlari (ustalar uchun) — ixtiyoriy yuklanadi.",
+        "bookings": "Yozilishlar tarixi — sana, usta, xizmat, tashrif holati.",
+        "reviews": "Fikrlar — siz ustalarga qoldiradigan matn va baho.",
+        "selfie": "Selfie (faqat AI Stilist funksiyasida) — uslubni tahlil qilish uchun AI-provayderga yuboriladi, 24 soatdan ko'p saqlanmaydi.",
+        "fcm": "FCM-token — yozilishlar va eslatmalar haqida push-bildirishnomalar yuborish uchun zarur."
+      },
+      "note": "Bank karta ma'lumotlarini to'plamaymiz. Onlayn to'lovlar kelajakdagi versiyada sertifikatlangan to'lov provayderlari orqali qo'llab-quvvatlanadi."
+    },
+    "s3": {
+      "heading": "Ma'lumotlarni nima uchun to'playmiz va qanday foydalanamiz",
+      "intro": "Ma'lumotlaringizni faqat xizmatni ta'minlash uchun ishlatamiz:",
+      "items": {
+        "booking": "Yozilishlarni rasmiylashtirish va boshqarish — siz o'z kalendaringizni, usta yozilishni o'zinikida ko'radi.",
+        "push": "Kelgusi tashriflar haqida push-bildirishnomalar, eslatmalar va tizim xabarlari.",
+        "reviews": "Fikrlarni ismingiz ostida e'lon qilish — siz fikr qoldirganingizda bunga rozilik bildirasiz.",
+        "ai": "AI Stilist so'rovlarini qayta ishlash — selfi va so'rov uslub tavsiyalari yaratish uchun AI-provayderga yuboriladi.",
+        "safety": "Xavfsizlik va firibgarlikni oldini olish — shubhali faoliyatni aniqlash."
+      }
+    },
+    "s4": {
+      "heading": "Ma'lumotlarni kim bilan ulashamiz",
+      "intro": "Ma'lumotlaringizni sotmaymiz. Faqat xizmat ishlamaydigan holatlarda uchinchi tomonlar bilan ulashamiz:",
+      "items": {
+        "ai1": "GitHub Models (OpenAI GPT-4o) — AI funksiyalari uchun: selfie orqali uslub tahlili, post sarlavhalari yaratish. Siyosatiga ko'ra provayder ma'lumotlarni saqlamaydi.",
+        "ai2": "Groq (Whisper Large v3) — ovozli qidiruv uchun. Audio saqlanmaydi.",
+        "ai3": "Anthropic Claude — Hayrli Pro ichida AI javoblari va tavsiyalar uchun. Ma'lumotlar saqlanmaydi.",
+        "firebase": "Firebase (Google) — push-bildirishnomalar va analitika uchun."
+      },
+      "noSale": "Ma'lumotlarni reklama tarmoqlariga bermaymiz. iOS reklama identifikatori (IDFA) to'planmaydi."
+    },
+    "s5": {
+      "heading": "Ma'lumotlarni qanday saqlaymiz va himoya qilamiz",
+      "body": "Ma'lumotlar himoyalangan muhitdagi serverlarda saqlanadi. Server bilan aloqa TLS 1.2+ yordamida shifrlangan. Ma'lumotlar bazasi diskda shifrlangan. JWT kirish tokenlari 60 daqiqaga, refresh-tokenlar 30 kunga amal qiladi. Kirish huquqlarini muntazam tekshiramiz va zaifliklarni bartaraf etamiz. Ma'lumotlar sizib chiqqanda 72 soat ichida zararlanган foydalanuvchilarni xabardor qilamiz."
+    },
+    "s6": {
+      "heading": "Sizning huquqlaringiz",
+      "intro": "Siz quyidagi huquqlarga egasiz:",
+      "items": {
+        "access": "Ma'lumotlaringizning nusxasini olish — support@hayrli.app manziliga yozing.",
+        "delete": "Hisobingiz va barcha ma'lumotlarni o'chirish — ilova sozlamalari orqali yoki so'rov bo'yicha. O'chirish 30 kun ichida amalga oshiriladi.",
+        "portability": "Ma'lumotlaringizni mashinabop formatda eksport qilish.",
+        "revoke": "Ma'lumotlarni qayta ishlashga rozilikni qaytarib olish — bu holda xizmatdan foydalanish to'xtatiladi."
+      },
+      "deleteNote": "O'chirish ilovada «Sozlamalar → Hisobni o'chirish» orqali yoki DELETE /users/me API so'rovi orqali amalga oshiriladi."
+    },
+    "s7": {
+      "heading": "Biz bilan qanday bog'lanish mumkin",
+      "body": "Maxfiylik bo'yicha savollar uchun murojaat qiling:"
+    },
+    "s8": {
+      "heading": "Siyosatdagi o'zgarishlar",
+      "body": "Siyosat sezilarli darajada o'zgarsа, o'zgarishlar kuchga kirmasidan kamida 14 kun oldin ilova orqali xabardor qilamiz. Xizmatdan foydalanishni davom ettirsangiz, yangi siyosatga rozilik bildirgan hisoblanasiz."
+    }
+  },
+  "terms": {
+    "title": "Foydalanish shartlari",
+    "effectiveDate": "Kuchga kirish sanasi: 2026-yil 11-iyul",
+    "s1": {
+      "heading": "Bu nima va kimga mo'ljallangan",
+      "body": "Ushbu Shartlar Flek LLC tomonidan ishlab chiqilgan Hayrli platformasi — mijozlar va ustalar ilovalari hamda hayrli.app sayti — dan foydalanishni tartibga soladi. Xizmatdan foydalanib, ushbu Shartlarni qabul qilasiz. Rozimassangiz — xizmatdan foydalanmang. Minimal yosh — 13. 18 yoshga to'lmagan foydalanuvchilar ota-ona yoki vasiy roziligiga ega bo'lishi lozim."
+    },
+    "s2": {
+      "heading": "Foydalanish qoidalari",
+      "intro": "Hayrli'dan foydalanib, quyidagilarga majbur bo'lasiz:",
+      "items": {
+        "age": "Sizga 13 yosh to'lgan (yoki ota-ona/vasiy roziligingiz bor).",
+        "accurate": "Profiliingizidagi ma'lumotlar to'g'ri va sizga tegishli.",
+        "noSpam": "Spam yubormaysiz, fikrlarni sun'iy oshirmaysiz va soxta yozilishlar yaratmaysiz.",
+        "noAbuse": "Xizmatni firibgarlik, haqorat yoki qonunga xilof maqsadlarda ishlatmaysiz."
+      }
+    },
+    "s3": {
+      "heading": "Xizmatlar va javobgarlik",
+      "body": "Hayrli — mijozlar va go'zallik ustalari o'rtasidagi vositachi platforma. Biz go'zallik xizmatlarini bevosita ko'rsatmaymiz va usta ishining sifati, ular tomonidan bekor qilish yoki to'lov nizolari uchun javobgar emasmiz. Mijoz va usta o'rtasidagi nizolarda yordam berishga harakat qilamiz, ammo yakuniy qarorni tomonlar mustaqil qabul qiladi."
+    },
+    "s4": {
+      "heading": "Intellektual mulk",
+      "intro": "Intellektual mulk huquqlari quyidagicha taqsimlanadi:",
+      "items": {
+        "license": "Kod, dizayn, logotiplar va Hayrli nomi Flek LLC'ga tegishli. Sizga ilovadan foydalanish uchun cheklangan, eksklyuziv bo'lmagan litsenziya beriladi.",
+        "usercontent": "Siz yuklagan kontent (rasmlar, fikrlar) sizniki bo'lib qoladi. Uni xizmat doirasida ko'rsatish uchun bizga eksklyuziv bo'lmagan litsenziya berasiz.",
+        "trademarks": "App Store va Google Play — mos ravishda Apple Inc. va Google LLC savdo belgilari."
+      }
+    },
+    "s5": {
+      "heading": "Javobgarlikni cheklash",
+      "body": "Hayrli «mavjud holida» taqdim etiladi. Xizmatning uzluksiz ishlashini kafolatlamaymiz va texnik nosozliklar, uchinchi tomonlar harakatlari yoki fors-major holatlardan kelib chiqqan yo'qotishlar uchun javobgar emasmiz. Maksimal javobgarligimiz so'nggi 12 oyda xizmat uchun to'langan summa bilan cheklanadi."
+    },
+    "s6": {
+      "heading": "Bloklash va kirishni to'xtatish",
+      "body": "Foydalanuvchi Shartlarni muntazam buzsa, soxta fikrlar qoldirsa yoki firibgarlik harakatlari sodir etsa, hisobni vaqtincha bloklash yoki o'chirishga haqlimiz. Bloklash haqida email yoki push-bildirishnoma orqali xabardor qilamiz. Qarorga e'tiroz bildirish uchun legal@hayrli.app manziliga yozing."
+    },
+    "s7": {
+      "heading": "Qo'llaniladigan qonunchilik",
+      "body": "Ushbu Shartlar O'zbekiston Respublikasi qonunchiligiga asoslanadi. Muzokaralar orqali hal etilmagan nizolar Flek LLC joylashgan yerdagi umumiy yurisdiksiya sudlarida ko'rib chiqiladi."
+    },
+    "s8": {
+      "heading": "O'zgarishlar va aloqa",
+      "body": "Shartlarni yangilashimiz mumkin. Muhim o'zgarishlar kuchga kirmasidan kamida 14 kun oldin ilova orqali xabardor qilamiz. Savollar va shikoyatlar uchun murojaat qiling:"
+    }
+  },
   "meta": {
     "title": "Hayrli — ustaga yoz, kalendarni to‘ldir",
     "description": "Hayrli — O‘zbekistondagi ustalarga yozilish ilovasi. Hayrli Pro — ustalar uchun."

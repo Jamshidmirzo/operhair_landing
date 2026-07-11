@@ -1,4 +1,119 @@
 {
+  "privacy": {
+    "title": "Privacy Policy",
+    "effectiveDate": "Effective: 11 July 2026",
+    "s1": {
+      "heading": "Who we are",
+      "body": "Hayrli is a marketplace for booking barbers and beauty professionals in Uzbekistan. The service is developed by Flek LLC (referred to below as \"we\", \"us\", \"our\"). Hayrli Pro is a separate app for professionals — managing schedules, clients and portfolios. This policy explains how we collect, use and protect your data when you use either app or the website hayrli.app."
+    },
+    "s2": {
+      "heading": "What data we collect",
+      "intro": "When you register and use the service, we may collect the following information:",
+      "items": {
+        "phone": "Phone number — for sign-in and SMS verification.",
+        "name": "First and last name — for your profile and bookings.",
+        "city": "City — so we can show you nearby professionals.",
+        "photo": "Profile photo and portfolio images (for professionals) — uploaded voluntarily.",
+        "bookings": "Booking history — date, professional, service, visit status.",
+        "reviews": "Reviews — the text and rating you leave for professionals.",
+        "selfie": "Selfie (AI Stylist feature only) — sent to an AI provider for style analysis, cached for up to 24 hours then deleted.",
+        "fcm": "FCM token — required to send you push notifications about bookings and reminders."
+      },
+      "note": "We do not collect bank card details. Online payments will be supported in a future version through certified payment providers."
+    },
+    "s3": {
+      "heading": "Why we collect data and how we use it",
+      "intro": "We use your data only to operate the service:",
+      "items": {
+        "booking": "Processing and managing bookings — you see your calendar, the professional sees the booking in theirs.",
+        "push": "Push notifications about upcoming visits, reminders and system messages.",
+        "reviews": "Publishing reviews under your name — you consent to this when you submit a review.",
+        "ai": "Processing AI Stylist requests — your selfie and request are sent to an AI provider to generate style recommendations.",
+        "safety": "Security and fraud prevention — detecting suspicious activity."
+      }
+    },
+    "s4": {
+      "heading": "Who we share data with",
+      "intro": "We do not sell your data. We share it only with parties the service cannot work without:",
+      "items": {
+        "ai1": "GitHub Models (OpenAI GPT-4o) — for AI features: selfie style analysis, post caption generation. Data is not retained by the provider per their policy.",
+        "ai2": "Groq (Whisper Large v3) — for voice search recognition. Audio is not retained.",
+        "ai3": "Anthropic Claude — for AI-generated replies and recommendations inside Hayrli Pro. Data is not retained.",
+        "firebase": "Firebase (Google) — for delivering push notifications and analytics."
+      },
+      "noSale": "We do not share data with advertising networks. The iOS Advertising Identifier (IDFA) is not collected."
+    },
+    "s5": {
+      "heading": "How we store and protect data",
+      "body": "Data is stored on servers in a secured environment. All traffic is encrypted using TLS 1.2+. The database is encrypted at rest. JWT access tokens expire in 60 minutes; refresh tokens expire in 30 days. We regularly audit access controls and patch vulnerabilities. In the event of a data breach we will notify affected users within 72 hours."
+    },
+    "s6": {
+      "heading": "Your rights",
+      "intro": "You have the right to:",
+      "items": {
+        "access": "Request a copy of your data — email us at support@hayrli.app.",
+        "delete": "Delete your account and all data — via the app settings or on request. Deletion is carried out within 30 days.",
+        "portability": "Receive an export of your data in a machine-readable format.",
+        "revoke": "Withdraw your consent to data processing — in which case access to the service will end."
+      },
+      "deleteNote": "Deletion is available directly in the app under Settings → Delete account, or via the API endpoint DELETE /users/me."
+    },
+    "s7": {
+      "heading": "How to contact us",
+      "body": "For privacy questions, reach us at:"
+    },
+    "s8": {
+      "heading": "Changes to this policy",
+      "body": "If we make significant changes, we will notify you through the app at least 14 days before the changes take effect. Continuing to use the service means you accept the updated policy."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "effectiveDate": "Effective: 11 July 2026",
+    "s1": {
+      "heading": "What this is and who it's for",
+      "body": "These Terms govern your use of the Hayrli platform — the client and professional apps and the website hayrli.app — developed by Flek LLC. By using the service you accept these Terms. If you disagree, please do not use the service. Minimum age is 13. Users under 18 must have parental or guardian consent."
+    },
+    "s2": {
+      "heading": "Rules of use",
+      "intro": "By using Hayrli, you agree to:",
+      "items": {
+        "age": "You are at least 13 years old (or have parental/guardian consent).",
+        "accurate": "The information in your profile is accurate and belongs to you.",
+        "noSpam": "You do not send spam, inflate reviews or create fake bookings.",
+        "noAbuse": "You do not use the service for fraud, harassment or unlawful activity."
+      }
+    },
+    "s3": {
+      "heading": "Services and liability",
+      "body": "Hayrli is a marketplace connecting clients with beauty professionals. We do not provide beauty services directly and are not responsible for the quality of a professional's work, cancellations on their part or payment disputes. In disputes between clients and professionals we try to help, but the parties ultimately resolve things themselves."
+    },
+    "s4": {
+      "heading": "Intellectual property",
+      "intro": "Intellectual property rights are distributed as follows:",
+      "items": {
+        "license": "The code, design, logos and the Hayrli name belong to Flek LLC. You are granted a limited, non-exclusive licence to use the app.",
+        "usercontent": "Content you upload (photos, reviews) remains yours. You grant us a non-exclusive licence to display it within the service.",
+        "trademarks": "App Store and Google Play are trademarks of Apple Inc. and Google LLC respectively."
+      }
+    },
+    "s5": {
+      "heading": "Limitation of liability",
+      "body": "Hayrli is provided \"as is\". We do not guarantee uninterrupted service and are not liable for losses arising from technical failures, third-party actions or force majeure. Our maximum liability is limited to the amount you paid for the service in the preceding 12 months."
+    },
+    "s6": {
+      "heading": "Suspension and termination",
+      "body": "We may temporarily suspend or delete an account if a user repeatedly violates these Terms, submits fake reviews or engages in fraudulent activity. We will notify you by email or push notification. You may appeal by writing to legal@hayrli.app."
+    },
+    "s7": {
+      "heading": "Governing law",
+      "body": "These Terms are governed by the laws of the Republic of Uzbekistan. Disputes not resolved by negotiation shall be referred to the courts of general jurisdiction at the location of Flek LLC."
+    },
+    "s8": {
+      "heading": "Changes and contact",
+      "body": "We may update these Terms. For significant changes you will receive in-app notice at least 14 days in advance. For questions and complaints, write to us at:"
+    }
+  },
   "meta": {
     "title": "Hayrli — book a barber, fill your calendar",
     "description": "Hayrli is the booking app for barbers in Uzbekistan. Hayrli Pro is for barbers themselves."

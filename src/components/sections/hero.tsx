@@ -55,6 +55,7 @@ export function Hero() {
             </Button>
           </div>
           <div className="mt-4 flex w-full flex-col items-center justify-center gap-2 sm:w-auto sm:flex-row">
+            {/* TODO: заменить href="#" на реальный URL после регистрации в App Store Connect */}
             <a
               href="#"
               aria-label={t("hero.appStore")}
@@ -71,6 +72,7 @@ export function Hero() {
               </svg>
               {t("hero.appStore")}
             </a>
+            {/* TODO: заменить href="#" на реальный URL после регистрации в Google Play Console */}
             <a
               href="#"
               aria-label={t("hero.googlePlay")}
