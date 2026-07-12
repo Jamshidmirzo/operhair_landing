@@ -13,13 +13,13 @@
     }
   },
   {
-    "_comment": "TODO: replace once the client app has a release keystore.",
+    "_comment": "TODO: replace SHA256 with the real client release-keystore fingerprint once we cut a Play release. Package matches the actual applicationId in client-mobile/android/app/build.gradle.",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "uz.hayrli.client",
+      "package_name": "flek.hayrli.app",
       "sha256_cert_fingerprints": [
         "TODO:REPLACE_WITH_HAYRLI_CLIENT_RELEASE_SHA256"
       ]

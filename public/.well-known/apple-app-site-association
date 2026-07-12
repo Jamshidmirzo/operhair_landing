@@ -9,7 +9,7 @@
         ]
       },
       {
-        "appID": "TEAM_ID_TODO.uz.hayrli.client",
+        "appID": "627FQ95TH8.flek.hayrli.app",
         "paths": [
           "/m/*"
         ]
@@ -18,7 +18,8 @@
   },
   "webcredentials": {
     "apps": [
-      "298VYB3R55.flek.hayrli.pro.app"
+      "298VYB3R55.flek.hayrli.pro.app",
+      "627FQ95TH8.flek.hayrli.app"
     ]
   }
 }
