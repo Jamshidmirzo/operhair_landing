@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
@@ -42,6 +42,9 @@ export function PartnerForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  // Ref-based cooldown: prevents duplicate submissions even if React state
+  // hasn't flushed yet (rapid double-click / enter-key spam).
+  const lastSubmitAt = useRef(0);
 
   const onChange = (field: "name" | "phone" | "city") => (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -55,6 +58,9 @@ export function PartnerForm() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
+    const now = Date.now();
+    if (now - lastSubmitAt.current < 5000) return; // 5 s cooldown between submits
+    lastSubmitAt.current = now;
     setSubmitError(null);
 
     const parsed = schema.safeParse(values);
