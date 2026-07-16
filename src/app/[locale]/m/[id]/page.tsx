@@ -15,6 +15,11 @@ import { cn } from "@/lib/utils";
 const API_BASE =
   process.env.NEXT_PUBLIC_HAYRLI_API_BASE ?? "https://api.hayrli.app";
 
+// App Store numeric id (from https://apps.apple.com/uz/app/hayrli/id6782782767).
+// Powers the Safari Smart App Banner — tapping GET opens the App Store,
+// tapping OPEN launches the installed app with `app-argument` as the URL.
+const IOS_APP_ID = "6782782767";
+
 type MasterCard = {
   id: string;
   name: string;
@@ -50,8 +55,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const master = await getMasterCard(id);
+  // Whether or not the master resolves, we want Safari's Smart App Banner
+  // on this route — visitors here are almost always coming from a QR scan
+  // and either need to jump into the installed app or be told to install.
+  const smartBanner = {
+    "apple-itunes-app": `app-id=${IOS_APP_ID}, app-argument=https://hayrli.app/m/${id}`,
+  };
   if (!master) {
-    return { title: "Hayrli" };
+    return { title: "Hayrli", other: smartBanner };
   }
 
   const description =
@@ -65,6 +76,7 @@ export async function generateMetadata({
       description: "Записывайтесь онлайн через Hayrli",
       images: master.avatar_url ? [master.avatar_url] : ["/og.png"],
     },
+    other: smartBanner,
   };
 }
 
@@ -80,15 +92,19 @@ export default async function MasterFallbackPage({
   const master = await getMasterCard(id);
 
   if (!master) {
+    // User very likely landed here via a QR-code scan. Even without a
+    // master to show, surface the same install CTAs as the success branch
+    // so a fresh device can pick up the app instead of hitting a dead end.
     return (
       <section className="container mx-auto flex max-w-md flex-col items-center gap-6 px-4 py-24 text-center">
         <h1 className="text-3xl font-semibold tracking-tight">
           {t("notFound.title")}
         </h1>
         <p className="text-muted-foreground">{t("notFound.description")}</p>
+        <StoreButtons />
         <Link
           href={`/${locale}`}
-          className={cn(buttonVariants({ size: "lg" }), "px-6")}
+          className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
           {t("notFound.cta")}
         </Link>
@@ -168,23 +184,8 @@ export default async function MasterFallbackPage({
           {t("storeHelper")}
         </p>
 
-        <div className="mt-3 grid w-full grid-cols-2 gap-3">
-          <a
-            href="https://apps.apple.com/uz/app/hayrli/id6782782767"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
-          >
-            App Store
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=flek.hayrli.app"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
-          >
-            Google Play
-          </a>
+        <div className="mt-3 w-full">
+          <StoreButtons />
         </div>
 
         <p className="mt-10 text-center text-xs text-muted-foreground">
@@ -192,5 +193,32 @@ export default async function MasterFallbackPage({
         </p>
       </div>
     </section>
+  );
+}
+
+const APP_STORE_URL = "https://apps.apple.com/uz/app/hayrli/id6782782767";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=flek.hayrli.app";
+
+function StoreButtons() {
+  return (
+    <div className="grid w-full grid-cols-2 gap-3">
+      <a
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
+      >
+        App Store
+      </a>
+      <a
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-muted"
+      >
+        Google Play
+      </a>
+    </div>
   );
 }

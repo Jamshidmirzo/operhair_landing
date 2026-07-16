@@ -1,6 +1,6 @@
 [
   {
-    "_comment": "TODO: replace SHA256 placeholders with the real release-keystore fingerprints. Until then Android App Links autoVerify will FAIL and `https://hayrli.app/m/<id>` will open in the browser instead of the apps. Generate with: keytool -list -v -keystore <release.keystore> -alias <alias>",
+    "_comment": "TODO — no keystore for Hayrli Pro is present locally at /Users/user/keystores/. Once cut, extract with `keytool -list -v -keystore <partner-release.jks> -alias <alias>` and replace the fingerprint below. Until then Android App Links for Hayrli Pro will fall back to the browser.",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
@@ -13,7 +13,7 @@
     }
   },
   {
-    "_comment": "TODO: replace SHA256 with the real client release-keystore fingerprint once we cut a Play release. Package matches the actual applicationId in client-mobile/android/app/build.gradle.",
+    "_comment": "Hayrli client — fingerprint extracted from /Users/user/keystores/hayrli-upload-keystore.jks (alias `upload`, CN=Hayrli, OU=Mobile, O=Flek). WARNING: if the app is enrolled in Play App Signing (default for new apps), the ACTUAL verified fingerprint is the Play-managed signing key, not this upload key. In that case add the Play App Signing SHA-256 from Play Console → Setup → App integrity as an extra entry in `sha256_cert_fingerprints`. Sideloaded / `flutter run --release` builds will verify with just this upload-key fingerprint.",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
@@ -21,7 +21,7 @@
       "namespace": "android_app",
       "package_name": "flek.hayrli.app",
       "sha256_cert_fingerprints": [
-        "TODO:REPLACE_WITH_HAYRLI_CLIENT_RELEASE_SHA256"
+        "F9:21:29:D3:36:BD:72:56:8F:3E:BB:63:7F:3E:0F:7E:5C:65:CE:07:C6:D7:37:69:4A:E1:9F:4B:B2:97:FC:C4"
       ]
     }
   }
