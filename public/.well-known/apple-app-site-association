@@ -5,13 +5,15 @@
       {
         "appID": "298VYB3R55.flek.hayrli.pro.app",
         "paths": [
-          "/m/*"
+          "/m/*",
+          "/*/m/*"
         ]
       },
       {
         "appID": "627FQ95TH8.flek.hayrli.app",
         "paths": [
-          "/m/*"
+          "/m/*",
+          "/*/m/*"
         ]
       }
     ]

@@ -18,7 +18,7 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
 });
 
-const SITE_URL = "https://hayrli.uz";
+const SITE_URL = "https://hayrli.app";
 
 const OG_LOCALE_MAP: Record<string, string> = {
   ru: "ru_RU",

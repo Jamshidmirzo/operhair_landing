@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { routing } from "@/i18n/routing";
 
-const SITE_URL = "https://hayrli.uz";
+const SITE_URL = "https://hayrli.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
