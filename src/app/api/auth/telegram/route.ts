@@ -30,6 +30,11 @@ import type { NextRequest } from "next/server";
  * partner app. Both intercept the navigation inside a WebView, so the custom
  * scheme is never handed to the OS.
  *
+ * Browsers have no custom scheme to be redirected into, so `?mode=web&origin=`
+ * opens the same widget and posts the payload back to the opener instead.
+ * That is how pro.hayrli.app signs in: it embedded the widget directly until
+ * now, which could never work for the same domain reason.
+ *
  * Lives under /api because src/proxy.ts runs next-intl with localePrefix
  * "always" over everything except /api: a page route would be redirected to
  * /ru/..., and there is no root layout outside [locale] to render it in.
@@ -45,6 +50,19 @@ const BOT_USERNAME = process.env.TELEGRAM_LOGIN_BOT ?? "hayrliAI_bot";
  * browser then navigates to, so it must never be caller-controlled text. */
 const ALLOWED_SCHEMES = new Set(["hayrli", "operhair"]);
 const DEFAULT_SCHEME = "hayrli";
+
+/**
+ * Origins allowed to receive the payload via postMessage in `mode=web`.
+ *
+ * A whitelist, and postMessage is always called with an explicit target
+ * rather than "*": the payload contains `hash`, which is a working credential
+ * until it expires. Sending it to a wildcard target would hand it to whatever
+ * page happened to open this popup.
+ */
+const ALLOWED_WEB_ORIGINS = new Set([
+  "https://pro.hayrli.app",
+  "https://hayrli.app",
+]);
 
 const ALLOWED_LANGS = new Set(["ru", "uz", "en", "ko"]);
 const DEFAULT_LANG = "ru";
@@ -118,9 +136,43 @@ export async function GET(request: NextRequest): Promise<Response> {
       ? requestedLang
       : DEFAULT_LANG;
 
+  // Browser callers (the pro.hayrli.app dashboard) open this in a popup and
+  // take the payload over postMessage — they have no custom scheme to be
+  // redirected into. Mobile stays the default.
+  const webOrigin = request.nextUrl.searchParams.get("origin");
+  const isWeb =
+    request.nextUrl.searchParams.get("mode") === "web" &&
+    webOrigin !== null &&
+    ALLOWED_WEB_ORIGINS.has(webOrigin);
+
+  if (request.nextUrl.searchParams.get("mode") === "web" && !isWeb) {
+    // Refusing rather than falling back to the mobile redirect: a caller
+    // asking for web mode from an origin we do not know is either
+    // misconfigured or fishing for the payload.
+    return page(`<p>Этот сайт не может использовать вход через Telegram.</p>`);
+  }
+
+  const deliver = isWeb
+    ? `
+        if (!window.opener) {
+          document.body.textContent = 'Окно входа открыто неправильно.';
+          return;
+        }
+        window.opener.postMessage(
+          { source: 'hayrli-telegram-auth', user: user },
+          ${JSON.stringify(webOrigin)}
+        );
+        window.close();`
+    : `
+        var encoded = btoa(JSON.stringify(user))
+          .replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '');
+        window.location.href =
+          ${JSON.stringify(`${scheme}://oauth/telegram/callback?data=`)} + encoded;`;
+
   // `data-onauth` runs in the page, so the payload never touches this server
   // — no request log can leak the `hash`, which is a live credential until it
-  // expires. base64url with padding stripped, matching what the apps decode.
+  // expires. Mobile gets base64url with padding stripped, matching what the
+  // apps decode; the browser gets the object as-is.
   return page(`
     <script async src="https://telegram.org/js/telegram-widget.js?22"
       data-telegram-login="${escapeHtml(BOT_USERNAME)}"
@@ -132,11 +184,7 @@ export async function GET(request: NextRequest): Promise<Response> {
       data-onauth="onTelegramAuth(user)"></script>
     <noscript><p>Для входа через Telegram нужен JavaScript.</p></noscript>
     <script>
-      function onTelegramAuth(user) {
-        var encoded = btoa(JSON.stringify(user))
-          .replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '');
-        window.location.href =
-          ${JSON.stringify(`${scheme}://oauth/telegram/callback?data=`)} + encoded;
+      function onTelegramAuth(user) {${deliver}
       }
     </script>
   `);
