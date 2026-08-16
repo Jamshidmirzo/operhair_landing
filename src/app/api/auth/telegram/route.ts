@@ -170,10 +170,29 @@ export async function GET(request: NextRequest): Promise<Response> {
         );
         window.close();`
     : `
-        var encoded = btoa(JSON.stringify(user))
-          .replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '');
-        window.location.href =
-          ${JSON.stringify(`${scheme}://oauth/telegram/callback?data=`)} + encoded;`;
+        try {
+          // btoa is Latin-1 only. Telegram sends the profile name as the user
+          // typed it, so a Cyrillic or Uzbek first_name made this throw
+          // InvalidCharacterError — inside a data-onauth handler, where the
+          // exception went nowhere. The user approved in Telegram and the app
+          // simply never heard back. Encode to UTF-8 bytes first, which is
+          // what the apps decode with utf8.decode(base64.decode(...)).
+          var bytes = new TextEncoder().encode(JSON.stringify(user));
+          var binary = '';
+          for (var i = 0; i < bytes.length; i++) {
+            binary += String.fromCharCode(bytes[i]);
+          }
+          var encoded = btoa(binary)
+            .replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=+$/, '');
+          window.location.href =
+            ${JSON.stringify(`${scheme}://oauth/telegram/callback?data=`)} + encoded;
+        } catch (e) {
+          // Never fail silently again: the app cannot tell a broken handler
+          // from a user who walked away, so it would just sit there until its
+          // timeout.
+          document.body.textContent =
+            'Не удалось передать данные входа в приложение. Попробуйте ещё раз.';
+        }`;
 
   // `data-onauth` runs in the page, so the payload never touches this server
   // — no request log can leak the `hash`, which is a live credential until it
