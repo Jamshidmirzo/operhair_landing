@@ -60,6 +60,12 @@ const DEFAULT_SCHEME = "hayrli";
  * page happened to open this popup.
  */
 const ALLOWED_WEB_ORIGINS = new Set([
+  // The dashboard is served from crm.hayrli.app (a VPS behind Caddy, not this
+  // Vercel project). This list named pro.hayrli.app, which is not the
+  // dashboard at all — it falls through this project's `*.hayrli.app` wildcard
+  // to the salon-slug route and answers "Салон не найден". So the one origin
+  // that actually opens this popup was the one origin being turned away.
+  "https://crm.hayrli.app",
   "https://pro.hayrli.app",
   "https://hayrli.app",
 ]);
