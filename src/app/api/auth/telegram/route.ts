@@ -73,8 +73,15 @@ const ALLOWED_WEB_ORIGINS = new Set([
 /**
  * Local dev servers for the apps that consume this widget — the CRM
  * dashboard's dev server (:3000) and this project's own (:3002, see
- * package.json). Never consulted in production: a deployed dashboard has no
- * business asking a production bot to postMessage into someone's localhost.
+ * package.json).
+ *
+ * This route has no "dev" deployment to gate these on: the bot is registered
+ * to hayrli.app alone, so the widget only ever renders from the live
+ * production deployment — a caller testing locally still opens *this*
+ * production page, it just wants the payload posted back to its own
+ * localhost instead of to crm.hayrli.app. So these are allowed
+ * unconditionally, same trust call the backend's own CORS_ORIGINS already
+ * makes for localhost:3000 with Kakao.
  */
 const DEV_WEB_ORIGINS = new Set([
   "http://localhost:3000",
@@ -82,8 +89,7 @@ const DEV_WEB_ORIGINS = new Set([
 ]);
 
 function isAllowedWebOrigin(origin: string): boolean {
-  if (ALLOWED_WEB_ORIGINS.has(origin)) return true;
-  return process.env.NODE_ENV !== "production" && DEV_WEB_ORIGINS.has(origin);
+  return ALLOWED_WEB_ORIGINS.has(origin) || DEV_WEB_ORIGINS.has(origin);
 }
 
 const ALLOWED_LANGS = new Set(["ru", "uz", "en", "ko"]);

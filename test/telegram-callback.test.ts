@@ -193,11 +193,11 @@ describe("web callback", () => {
     expect(page).toContain("не может использовать вход через Telegram");
   });
 
-  it("allows the dashboard's local dev server outside production", async () => {
-    // vitest runs with NODE_ENV=test, so this exercises the same branch a
-    // developer running the dashboard against `npm run dev` would hit.
-    expect(process.env.NODE_ENV).not.toBe("production");
-
+  it("allows the dashboard's local dev server, same as production origins", async () => {
+    // This route always runs as the live production deployment (the bot is
+    // registered to hayrli.app alone), so there is no non-prod environment
+    // to gate this on — a developer running the dashboard against `npm run
+    // dev` still opens this exact production page.
     const page = await html(
       "https://hayrli.app/api/auth/telegram?mode=web&origin=http://localhost:3000",
     );
