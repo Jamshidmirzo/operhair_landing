@@ -70,6 +70,22 @@ const ALLOWED_WEB_ORIGINS = new Set([
   "https://hayrli.app",
 ]);
 
+/**
+ * Local dev servers for the apps that consume this widget — the CRM
+ * dashboard's dev server (:3000) and this project's own (:3002, see
+ * package.json). Never consulted in production: a deployed dashboard has no
+ * business asking a production bot to postMessage into someone's localhost.
+ */
+const DEV_WEB_ORIGINS = new Set([
+  "http://localhost:3000",
+  "http://localhost:3002",
+]);
+
+function isAllowedWebOrigin(origin: string): boolean {
+  if (ALLOWED_WEB_ORIGINS.has(origin)) return true;
+  return process.env.NODE_ENV !== "production" && DEV_WEB_ORIGINS.has(origin);
+}
+
 const ALLOWED_LANGS = new Set(["ru", "uz", "en", "ko"]);
 const DEFAULT_LANG = "ru";
 
@@ -149,7 +165,7 @@ export async function GET(request: NextRequest): Promise<Response> {
   const isWeb =
     request.nextUrl.searchParams.get("mode") === "web" &&
     webOrigin !== null &&
-    ALLOWED_WEB_ORIGINS.has(webOrigin);
+    isAllowedWebOrigin(webOrigin);
 
   if (request.nextUrl.searchParams.get("mode") === "web" && !isWeb) {
     // Refusing rather than falling back to the mobile redirect: a caller

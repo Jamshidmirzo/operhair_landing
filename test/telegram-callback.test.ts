@@ -193,6 +193,21 @@ describe("web callback", () => {
     expect(page).toContain("не может использовать вход через Telegram");
   });
 
+  it("allows the dashboard's local dev server outside production", async () => {
+    // vitest runs with NODE_ENV=test, so this exercises the same branch a
+    // developer running the dashboard against `npm run dev` would hit.
+    expect(process.env.NODE_ENV).not.toBe("production");
+
+    const page = await html(
+      "https://hayrli.app/api/auth/telegram?mode=web&origin=http://localhost:3000",
+    );
+    const { posted, closed } = runHandler(page, CYRILLIC_USER);
+
+    expect(posted).toHaveLength(1);
+    expect(posted[0].targetOrigin).toBe("http://localhost:3000");
+    expect(closed).toBe(true);
+  });
+
   it("serves the widget for mobile, which sends no origin at all", async () => {
     const page = await html(
       "https://hayrli.app/api/auth/telegram?scheme=hayrli",
