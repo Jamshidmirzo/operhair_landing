@@ -6,7 +6,15 @@
 
 ## Блокеры
 
-1. **Сборка падает на typecheck — следующий пуш в `main` не задеплоится.**
+1. ~~**Сборка падает на typecheck**~~ **ЗАКРЫТО 2026-09-19.** Починены 5 ошибок в
+   `test/telegram-callback.test.ts`: у `runHandler` появился явный возвращаемый тип
+   (без него TS сужал `navigatedTo` до типа инициализатора, потому что присваивание
+   происходит внутри колбэка, — из-за чего `navigatedTo!` резолвился в `never`), а
+   `match[1]` и `posted[0]` получили `!` под `noUncheckedIndexedAccess` — оба уже
+   защищены проверками выше по коду. `npx tsc --noEmit` чист, 9 тестов проходят.
+   Исходная формулировка ниже оставлена для истории.
+
+   <details><summary>было</summary>
    `npx tsc --noEmit` даёт 5 ошибок в `test/telegram-callback.test.ts` (строки 89, 165,
    177, 178, 207). `tsconfig.json:27-34` включает `**/*.ts` и исключает только
    `node_modules`, при включённых `strict` и `noUncheckedIndexedAccess`;
@@ -14,20 +22,24 @@
    HEAD-коммите, а `.next/` датирован 16 августа — то есть с тех пор ни разу не собирали.
    Выглядеть поломка будет как проблема тестового файла, а не кода.
    Варианты: починить типы в тесте, либо исключить `test/**` из `tsconfig.json`.
+   </details>
 
-2. **App Links для Hayrli Pro не работают — две независимые причины.**
-   `public/.well-known/assetlinks.json`:
-   - `:8` — `"package_name": "flek.hayrli.pro.app"`, тогда как Android-сборка использует
-     `flek.hayrli.pro`;
-   - `:10` — вместо SHA-256 стоит `TODO:REPLACE_WITH_HAYRLI_PRO_RELEASE_SHA256`
-     (комментарий на `:3` подтверждает, что keystore ещё не создан).
+2. ~~**App Links для Hayrli Pro не работают**~~ **ЗАКРЫТО 2026-09-19.**
+   В `public/.well-known/assetlinks.json` исправлены обе причины: `package_name` теперь
+   `flek.hayrli.pro` (совпадает с `applicationId` в Android-сборке), и вместо заглушки
+   стоит настоящий SHA-256 релизного ключа. Keystore, вопреки предыдущей редакции этого
+   файла, всё время был на месте — в `operhair_partner/android/app/hayrli-pro-release.jks`.
 
-   Починка одного без другого не даёт ничего: Android сверяет и имя пакета, и подпись.
-   Пока обе на месте, каждая ссылка `hayrli.app/m/...` открывается в браузере вместо
-   приложения. Отпечаток брать от **релизного** upload-keystore (см. `AUDIT.md` в
-   репозитории Hayrli Pro — он сейчас отсутствует на машине сборки).
+   **Подтверждено: Play App Signing выключен**, поэтому upload-ключ и есть ключ подписи,
+   и его отпечаток — именно тот, который проверяет Android. Если App Signing когда-нибудь
+   включат, в `sha256_cert_fingerprints` надо будет добавить вторым элементом отпечаток от
+   Google (Play Console → Setup → App integrity).
 
-3. **AASA: проверить bundle id и Team ID для Pro.**
+   Проверить после деплоя:
+   `curl -s https://hayrli.app/.well-known/assetlinks.json | jq` — должен отдаваться с
+   `content-type: application/json` и без редиректа.
+
+3. **AASA: проверить bundle id и Team ID для Pro.** (Единственный оставшийся блокер.)
    `public/.well-known/apple-app-site-association:6` и `:18` объявляют
    `298VYB3R55.flek.hayrli.pro.app`, тогда как у клиентского приложения Team ID —
    `627FQ95TH8`. Два разных Team ID у приложений одной организации стоит подтвердить.

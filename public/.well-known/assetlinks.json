@@ -1,14 +1,14 @@
 [
   {
-    "_comment": "TODO — no keystore for Hayrli Pro is present locally at /Users/user/keystores/. Once cut, extract with `keytool -list -v -keystore <partner-release.jks> -alias <alias>` and replace the fingerprint below. Until then Android App Links for Hayrli Pro will fall back to the browser.",
+    "_comment": "Hayrli Pro. Fingerprint extracted from operhair_partner/android/app/hayrli-pro-release.jks (alias `hayrli-pro`, valid to 2053). Play App Signing is DISABLED for this app, so the upload key IS the verified signing key and this fingerprint is the one Android checks. If Play App Signing is ever enabled, add the Play-managed SHA-256 from Play Console -> Setup -> App integrity as an extra entry here. package_name must stay in sync with applicationId in android/app/build.gradle.kts (`flek.hayrli.pro`) - it previously read `flek.hayrli.pro.app`, which could never match.",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "flek.hayrli.pro.app",
+      "package_name": "flek.hayrli.pro",
       "sha256_cert_fingerprints": [
-        "TODO:REPLACE_WITH_HAYRLI_PRO_RELEASE_SHA256"
+        "DD:0F:65:5C:1B:1F:F8:72:F4:E6:C7:99:2D:88:B5:91:85:BE:7C:CD:58:65:10:02:28:B0:DD:88:4A:F8:22:E5"
       ]
     }
   },

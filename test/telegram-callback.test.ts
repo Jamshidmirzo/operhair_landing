@@ -45,7 +45,15 @@ async function html(url: string): Promise<string> {
  * The function body is executed as-is — no copy of it lives in this file, so
  * the test cannot drift from what the server actually ships.
  */
-function runHandler(page: string, user: unknown) {
+function runHandler(
+  page: string,
+  user: unknown,
+): {
+  navigatedTo: string | null;
+  bodyText: string | null;
+  posted: Array<{ message: unknown; targetOrigin: string }>;
+  closed: boolean;
+} {
   const match = page.match(
     /function onTelegramAuth\(user\) \{([\s\S]*?)\n {6}\}/,
   );
@@ -86,7 +94,7 @@ function runHandler(page: string, user: unknown) {
     "document",
     "btoa",
     "TextEncoder",
-    match[1],
+    match[1]!,
   )(user, win, doc, globalThis.btoa, globalThis.TextEncoder);
 
   return { navigatedTo, bodyText, posted, closed };
@@ -174,8 +182,8 @@ describe("web callback", () => {
     const { posted, closed, navigatedTo } = runHandler(page, CYRILLIC_USER);
 
     expect(posted).toHaveLength(1);
-    expect(posted[0].targetOrigin).toBe("https://crm.hayrli.app");
-    expect(posted[0].message).toEqual({
+    expect(posted[0]!.targetOrigin).toBe("https://crm.hayrli.app");
+    expect(posted[0]!.message).toEqual({
       source: "hayrli-telegram-auth",
       user: CYRILLIC_USER,
     });
@@ -204,7 +212,7 @@ describe("web callback", () => {
     const { posted, closed } = runHandler(page, CYRILLIC_USER);
 
     expect(posted).toHaveLength(1);
-    expect(posted[0].targetOrigin).toBe("http://localhost:3000");
+    expect(posted[0]!.targetOrigin).toBe("http://localhost:3000");
     expect(closed).toBe(true);
   });
 
