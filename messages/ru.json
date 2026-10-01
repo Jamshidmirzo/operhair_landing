@@ -226,9 +226,13 @@
     "screens": {
       "eyebrow": "Как выглядит приложение",
       "items": {
-        "home": "Главный экран",
-        "barber": "Карточка мастера",
-        "confirm": "Подтверждение"
+        "home": "Главная",
+        "barberProfile": "Профиль мастера",
+        "quickBooking": "Быстрая запись",
+        "myBookings": "Мои записи",
+        "editProfile": "Редактирование профиля",
+        "settings": "Настройки",
+        "language": "Язык"
       }
     },
     "cta": {
@@ -269,9 +273,13 @@
     "screens": {
       "eyebrow": "Pro приложение",
       "items": {
-        "dashboard": "Дашборд",
-        "schedule": "Расписание дня",
-        "client": "Карточка клиента"
+        "calendar": "Календарь",
+        "appointment": "Запись",
+        "newClient": "Новый клиент",
+        "workingSchedule": "График работы",
+        "newService": "Новая услуга",
+        "profile": "Профиль",
+        "language": "Язык"
       }
     },
     "download": {

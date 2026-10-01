@@ -226,9 +226,13 @@
     "screens": {
       "eyebrow": "What it looks like",
       "items": {
-        "home": "Home screen",
-        "barber": "Barber profile",
-        "confirm": "Confirmation"
+        "home": "Home",
+        "barberProfile": "Barber profile",
+        "quickBooking": "Quick booking",
+        "myBookings": "My bookings",
+        "editProfile": "Edit profile",
+        "settings": "Settings",
+        "language": "Language"
       }
     },
     "cta": {
@@ -269,9 +273,13 @@
     "screens": {
       "eyebrow": "Pro app",
       "items": {
-        "dashboard": "Dashboard",
-        "schedule": "Day schedule",
-        "client": "Client profile"
+        "calendar": "Calendar",
+        "appointment": "Appointment",
+        "newClient": "New client",
+        "workingSchedule": "Working schedule",
+        "newService": "New service",
+        "profile": "Profile",
+        "language": "Language"
       }
     },
     "download": {

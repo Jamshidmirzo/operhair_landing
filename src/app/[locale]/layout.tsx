@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { HayrliBackground } from "@/components/hayrli-background";
 import { LenisProvider } from "@/components/lenis-provider";
 import { PageTracker } from "@/components/page-tracker";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -106,6 +107,7 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <ThemeProvider>
           <NextIntlClientProvider locale={locale}>
+            <HayrliBackground />
             <LenisProvider />
             <PageTracker />
             <Header />

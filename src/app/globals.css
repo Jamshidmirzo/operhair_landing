@@ -145,3 +145,68 @@
     overflow: hidden;
   }
 }
+
+/* ── Theme switch: circular reveal (driven from theme-toggle.tsx) ───────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+.theme-star {
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);
+  animation: theme-twinkle 2.2s ease-in-out infinite;
+}
+@keyframes theme-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(0.6);
+  }
+}
+
+/* ── Screen showcase autoplay bar ─────────────────────────────────────── */
+.showcase-progress {
+  width: 0;
+  animation-name: showcase-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes showcase-progress {
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Hero phones: idle float ──────────────────────────────────────────── */
+.hero-float {
+  animation: hero-float 7s ease-in-out infinite;
+}
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-star,
+  .hero-float {
+    animation: none;
+  }
+}

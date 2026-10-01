@@ -38,11 +38,11 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="mt-16 border-t border-border/60 bg-background">
+    <footer className="mt-16 border-t border-border/60 bg-background/85">
       <div className="mx-auto w-full max-w-6xl px-6 py-12">
         <div className="grid gap-12 md:grid-cols-[1.2fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-3">
-            <Wordmark className="text-xl" />
+            <Wordmark height={30} />
             <p className="max-w-xs text-sm font-light text-muted-foreground">
               {t("footer.tagline")}
             </p>

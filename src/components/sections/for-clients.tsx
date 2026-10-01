@@ -1,20 +1,18 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Clock, History, MapPin, Star } from "lucide-react";
 
+import { BrandMark } from "@/components/layout/wordmark";
+import { StoreBadge } from "@/components/store-badge";
+
+import { CLIENT_SCREEN_RATIO, CLIENT_SCREENS, STORE_LINKS } from "./app-screens";
 import { Reveal } from "./reveal";
+import { ScreenShowcase } from "./screen-showcase";
 
 const FEATURES = [
   { key: "geo", Icon: MapPin },
   { key: "reviews", Icon: Star },
   { key: "online", Icon: Clock },
   { key: "history", Icon: History },
-] as const;
-
-const SCREENS = [
-  { key: "home", src: "/screenshots/client-home.png" },
-  { key: "barber", src: "/screenshots/client-barber.png" },
-  { key: "confirm", src: "/screenshots/client-confirm.png" },
 ] as const;
 
 /**
@@ -28,7 +26,7 @@ export function ForClients() {
   return (
     <section
       id="for-clients"
-      className="border-t border-border/60 bg-background px-6 py-24 sm:py-32"
+      className="border-t border-border/60 px-6 py-24 sm:py-32"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         {/* Header */}
@@ -36,13 +34,9 @@ export function ForClients() {
           <Reveal>
 
             <div className="mb-6 flex items-center gap-3">
-              <Image
-                src="/logo-hayrli.jpg"
-                alt="Hayrli"
-                width={48}
-                height={48}
-                className="rounded-xl"
-              />
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-[#1b1a1f] text-[#fffdfa] shadow-lg ring-1 ring-black/5 dark:bg-[#fffdfa] dark:text-[#1b1a1f]">
+                <BrandMark size={30} />
+              </span>
             </div>
             <h2
               className="font-sans font-light tracking-tight text-foreground"
@@ -71,7 +65,7 @@ export function ForClients() {
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[0, 1, 2].map((i) => (
               <Reveal key={i} delay={0.1 + i * 0.1}>
-                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-muted p-8">
+                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card/80 p-8 transition-transform duration-300 hover:-translate-y-1">
                   <span
                     className="font-sans font-thin text-muted-foreground/40"
                     style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", lineHeight: 1 }}
@@ -100,7 +94,7 @@ export function ForClients() {
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {FEATURES.map((feat, i) => (
               <Reveal key={feat.key} delay={0.1 + i * 0.1}>
-                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-8">
+                <div className="flex h-full flex-col rounded-3xl border border-border/60 bg-card/80 p-8 transition-transform duration-300 hover:-translate-y-1">
                   <feat.Icon
                     aria-hidden
                     className="size-6 text-foreground"
@@ -125,26 +119,16 @@ export function ForClients() {
               {t("screens.eyebrow")}
             </h3>
           </Reveal>
-          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
-            {SCREENS.map((screen, i) => (
-              <Reveal key={screen.key} delay={0.1 + i * 0.1}>
-                <figure className="flex flex-col items-center">
-                  <div className="relative aspect-[9/19] w-[260px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] ring-1 ring-border sm:w-full">
-                    <Image
-                      src={screen.src}
-                      alt={t(`screens.items.${screen.key}`)}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 260px, 33vw"
-                    />
-                  </div>
-                  <figcaption className="mt-4 text-sm font-light text-muted-foreground">
-                    {t(`screens.items.${screen.key}`)}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.1}>
+            <ScreenShowcase
+              className="mt-10"
+              ratio={CLIENT_SCREEN_RATIO}
+              screens={CLIENT_SCREENS.map((screen) => ({
+                src: screen.src,
+                label: t(`screens.items.${screen.key}`),
+              }))}
+            />
+          </Reveal>
         </div>
 
         {/* CTA */}
@@ -162,62 +146,24 @@ export function ForClients() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-              <a
-                href="https://apps.apple.com/uz/app/hayrli/id6782782767"
-                target="_blank"
-                rel="noreferrer"
-                aria-label={t("cta.appStoreAria")}
-                className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-foreground px-5 text-background transition-opacity hover:opacity-90"
-              >
-                <AppleGlyph aria-hidden className="size-7 shrink-0" />
-                <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[10px] font-light tracking-wide uppercase opacity-70">
-                    {t("cta.appStoreSmall")}
-                  </span>
-                  <span className="text-base font-medium">
-                    {t("cta.appStoreBig")}
-                  </span>
-                </span>
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=flek.hayrli.app"
-                target="_blank"
-                rel="noreferrer"
-                aria-label={t("cta.googlePlayAria")}
-                className="flex h-14 w-56 items-center justify-center gap-3 rounded-2xl bg-foreground px-5 text-background transition-opacity hover:opacity-90"
-              >
-                <PlayGlyph aria-hidden className="size-7 shrink-0" />
-                <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[10px] font-light tracking-wide uppercase opacity-70">
-                    {t("cta.googlePlaySmall")}
-                  </span>
-                  <span className="text-base font-medium">
-                    {t("cta.googlePlayBig")}
-                  </span>
-                </span>
-              </a>
+              <StoreBadge
+                store="apple"
+                href={STORE_LINKS.hayrli.apple}
+                small={t("cta.appStoreSmall")}
+                big={t("cta.appStoreBig")}
+                ariaLabel={t("cta.appStoreAria")}
+              />
+              <StoreBadge
+                store="google"
+                href={STORE_LINKS.hayrli.google}
+                small={t("cta.googlePlaySmall")}
+                big={t("cta.googlePlayBig")}
+                ariaLabel={t("cta.googlePlayAria")}
+              />
             </div>
           </Reveal>
         </div>
       </div>
     </section>
-  );
-}
-
-/* Tiny inline glyphs for store badges. Kept inline so we don't ship more
-   icons than needed. */
-function AppleGlyph(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M16.365 1.43c0 1.14-.46 2.21-1.21 3-.81.85-2.13 1.51-3.21 1.43-.13-1.13.43-2.32 1.18-3.07.83-.83 2.18-1.43 3.24-1.36zM20.5 17.27c-.55 1.27-.81 1.83-1.51 2.95-.97 1.55-2.34 3.49-4.04 3.5-1.51.02-1.9-.99-3.95-.97-2.05.01-2.48 1-4 .97-1.7-.02-3-1.77-3.97-3.32C.42 16.27-.27 11.13 1.6 8.31c1.34-2 3.43-3.18 5.4-3.18 2.01 0 3.27 1.1 4.94 1.1 1.62 0 2.61-1.1 4.94-1.1 1.76 0 3.62.96 4.94 2.62-4.34 2.39-3.62 8.6-1.32 9.52z" />
-    </svg>
-  );
-}
-
-function PlayGlyph(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M3.6 1.83c-.36.39-.6.97-.6 1.74v16.86c0 .77.24 1.35.6 1.74l8.4-9.17-8.4-9.17zM14.4 13.84l3.34-1.92c.6-.35.94-.81.94-1.34s-.34-.99-.94-1.34L14.4 7.32 12 9.94l2.4 2.62-2.4 2.62 2.4-1.34zM4.86 23.27c.41 0 .87-.13 1.36-.42l10.13-5.84-2.45-2.62L4.86 23.27zM4.86.74L13.9 9.13l2.45-2.62L6.22 1.16C5.73.87 5.27.74 4.86.74z" />
-    </svg>
   );
 }

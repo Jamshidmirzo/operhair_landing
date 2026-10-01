@@ -49,8 +49,12 @@ export function Header() {
     >
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-4 px-6">
         {/* Left: wordmark */}
-        <a href="#top" aria-label="Hayrli" className="shrink-0">
-          <Wordmark />
+        <a
+          href="#top"
+          aria-label="Hayrli"
+          className="shrink-0 transition-opacity hover:opacity-80"
+        >
+          <Wordmark height={22} />
         </a>
 
         {/* Center: nav (desktop) */}
@@ -71,8 +75,8 @@ export function Header() {
 
         {/* Right: lang + cta (desktop) / hamburger (mobile) */}
         <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-1 md:flex">
-            <ThemeToggle />
+          <div className="hidden items-center gap-2 md:flex">
+            <ThemeToggle className="mr-1" />
             <LanguageSwitcher />
             <Button
               size="sm"
@@ -83,7 +87,8 @@ export function Header() {
             </Button>
           </div>
 
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger
                 render={
@@ -99,7 +104,7 @@ export function Header() {
               <SheetContent side="right" className="w-full max-w-sm">
                 <SheetHeader>
                   <SheetTitle>
-                    <Wordmark />
+                    <Wordmark height={22} />
                   </SheetTitle>
                   <SheetDescription className="sr-only">
                     {t("nav.menu")}
@@ -118,10 +123,7 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-border px-4 py-4">
-                  <div className="flex items-center gap-1">
-                    <ThemeToggle />
-                    <LanguageSwitcher />
-                  </div>
+                  <LanguageSwitcher />
                   <Button
                     size="sm"
                     className="rounded-full px-4"

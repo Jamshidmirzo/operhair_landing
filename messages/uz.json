@@ -226,9 +226,13 @@
     "screens": {
       "eyebrow": "Ilova qanday ko‘rinishda",
       "items": {
-        "home": "Bosh ekran",
-        "barber": "Usta kartasi",
-        "confirm": "Tasdiqlash"
+        "home": "Bosh sahifa",
+        "barberProfile": "Usta profili",
+        "quickBooking": "Tezkor yozilish",
+        "myBookings": "Mening yozuvlarim",
+        "editProfile": "Profilni tahrirlash",
+        "settings": "Sozlamalar",
+        "language": "Til"
       }
     },
     "cta": {
@@ -269,9 +273,13 @@
     "screens": {
       "eyebrow": "Pro ilova",
       "items": {
-        "dashboard": "Boshqaruv paneli",
-        "schedule": "Kun jadvali",
-        "client": "Mijoz kartasi"
+        "calendar": "Kalendar",
+        "appointment": "Yozuv",
+        "newClient": "Yangi mijoz",
+        "workingSchedule": "Ish jadvali",
+        "newService": "Yangi xizmat",
+        "profile": "Profil",
+        "language": "Til"
       }
     },
     "download": {

@@ -1,9 +1,15 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { BrandMark } from "@/components/layout/wordmark";
+import { StoreBadge } from "@/components/store-badge";
 import { Button } from "@/components/ui/button";
 
+import { CLIENT_SCREENS, STORE_LINKS } from "./app-screens";
 import { HeroFade } from "./hero-animations";
+
+// Barber profile · Home · Quick booking — the core client flow at a glance.
+const HERO_SCREENS = [CLIENT_SCREENS[1], CLIENT_SCREENS[0], CLIENT_SCREENS[2]];
 
 /**
  * Hero is a server component. The fade-in animations are isolated in a tiny
@@ -11,6 +17,7 @@ import { HeroFade } from "./hero-animations";
  */
 export function Hero() {
   const t = useTranslations();
+  const tc = useTranslations("forClients.cta");
 
   return (
     <section
@@ -19,6 +26,10 @@ export function Hero() {
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         <HeroFade>
+          <BrandMark size={44} className="mb-8 text-foreground" />
+        </HeroFade>
+
+        <HeroFade delay={0.05}>
           <h1
             className="font-sans font-light tracking-tight text-foreground"
             style={{ fontSize: "clamp(2.75rem, 8vw, 7.5rem)", lineHeight: 1.02 }}
@@ -54,76 +65,55 @@ export function Hero() {
               {t("cta.becomePartner")}
             </Button>
           </div>
-          <div className="mt-4 flex w-full flex-col items-center justify-center gap-2 sm:w-auto sm:flex-row">
-            {/* TODO: заменить href="#" на реальный URL после регистрации в App Store Connect */}
-            <a
-              href="#"
-              aria-label={t("hero.appStore")}
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-5 w-5 shrink-0"
-                aria-hidden="true"
-              >
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04l-.07.28zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-              </svg>
-              {t("hero.appStore")}
-            </a>
-            {/* TODO: заменить href="#" на реальный URL после регистрации в Google Play Console */}
-            <a
-              href="#"
-              aria-label={t("hero.googlePlay")}
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-5 w-5 shrink-0"
-                aria-hidden="true"
-              >
-                <path d="M3.18 23.76c.35.2.74.24 1.12.1l12.76-7.37-2.78-2.79-11.1 10.06zM.5 1.5C.19 1.86 0 2.4 0 3.09v17.82c0 .69.19 1.23.5 1.59l.08.08 9.98-9.98v-.23L.58 1.42.5 1.5zM20.13 10.4l-2.7-1.56-3.08 3.08 3.08 3.08 2.72-1.57c.78-.45.78-1.58-.02-2.03zM4.3.14L17.06 7.5l-2.78 2.79L3.17.23c.38-.15.79-.11 1.13.1-.01.01 0 .01 0 .01z" />
-              </svg>
-              {t("hero.googlePlay")}
-            </a>
+          <div className="mt-5 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+            <StoreBadge
+              store="apple"
+              href={STORE_LINKS.hayrli.apple}
+              small={tc("appStoreSmall")}
+              big={tc("appStoreBig")}
+              ariaLabel={t("hero.appStore")}
+            />
+            <StoreBadge
+              store="google"
+              href={STORE_LINKS.hayrli.google}
+              small={tc("googlePlaySmall")}
+              big={tc("googlePlayBig")}
+              ariaLabel={t("hero.googlePlay")}
+            />
           </div>
         </HeroFade>
 
         <HeroFade delay={0.35} className="mt-16 w-full">
           <div className="mx-auto flex max-w-3xl items-end justify-center gap-4 sm:gap-8">
-            <div className="relative hidden aspect-[9/19] w-[180px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-20px_rgba(15,23,42,0.3)] ring-1 ring-border/60 sm:block">
-              <Image
-                src="/screenshots/client-barber.png"
-                alt={t("hero.visualAlt")}
-                fill
-                className="object-cover"
-                sizes="180px"
-                priority
-              />
-            </div>
-            <div className="relative aspect-[9/19] w-[220px] overflow-hidden rounded-[2.5rem] shadow-[0_50px_120px_-40px_rgba(15,23,42,0.4)] ring-1 ring-border/60 sm:w-[240px]">
-              <Image
-                src="/screenshots/client-home.png"
-                alt={t("hero.visualAlt")}
-                fill
-                className="object-cover"
-                sizes="240px"
-                priority
-              />
-            </div>
-            <div className="relative hidden aspect-[9/19] w-[180px] overflow-hidden rounded-[2.5rem] shadow-[0_30px_80px_-20px_rgba(15,23,42,0.3)] ring-1 ring-border/60 sm:block">
-              <Image
-                src="/screenshots/client-confirm.png"
-                alt={t("hero.visualAlt")}
-                fill
-                className="object-cover"
-                sizes="180px"
-                priority
-              />
-            </div>
+            {HERO_SCREENS.map((screen, i) => {
+              const center = i === 1;
+              return (
+                <div
+                  key={screen.src}
+                  className={center ? "hero-float" : "hero-float hidden sm:block"}
+                  style={{ animationDelay: `${i * -2.3}s` }}
+                >
+                  <div
+                    className={
+                      center
+                        ? "relative aspect-[9/19.5] w-[220px] overflow-hidden rounded-[2.6rem] bg-[#1b1a1f] p-[6px] shadow-[0_50px_120px_-40px_rgba(27,26,31,0.55)] ring-1 ring-black/10 sm:w-[250px] dark:shadow-[0_50px_120px_-30px_rgba(0,0,0,0.9)] dark:ring-white/15"
+                        : "relative aspect-[9/19.5] w-[180px] overflow-hidden rounded-[2.2rem] bg-[#1b1a1f] p-[5px] opacity-90 shadow-[0_30px_80px_-20px_rgba(27,26,31,0.4)] ring-1 ring-black/10 dark:ring-white/10"
+                    }
+                  >
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-black">
+                      <Image
+                        src={screen.src}
+                        alt={t("hero.visualAlt")}
+                        fill
+                        className="object-cover object-top"
+                        sizes={center ? "250px" : "180px"}
+                        priority
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </HeroFade>
       </div>
