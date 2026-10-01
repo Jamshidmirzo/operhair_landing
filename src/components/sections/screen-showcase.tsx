@@ -80,8 +80,6 @@ export function ScreenShowcase({
   };
 
   const dark = tone === "dark";
-  const prev = screens[(index - 1 + n) % n]!;
-  const next = screens[(index + 1) % n]!;
   const current = screens[index]!;
 
   return (
@@ -175,18 +173,16 @@ export function ScreenShowcase({
           {n > 1 && (
             <>
               <Phone
-                key={`prev-${prev.src}`}
-                src={prev.src}
-                alt=""
+                screens={screens}
+                active={(index - 1 + n) % n}
                 dark={dark}
                 ratio={ratio}
                 className="absolute top-1/2 left-1/2 hidden w-[200px] -translate-x-[115%] -translate-y-[46%] -rotate-[8deg] opacity-50 blur-[1px] transition-all duration-700 sm:block"
                 onClick={() => go(index - 1)}
               />
               <Phone
-                key={`next-${next.src}`}
-                src={next.src}
-                alt=""
+                screens={screens}
+                active={(index + 1) % n}
                 dark={dark}
                 ratio={ratio}
                 className="absolute top-1/2 left-1/2 hidden w-[200px] translate-x-[15%] -translate-y-[46%] rotate-[8deg] opacity-50 blur-[1px] transition-all duration-700 sm:block"
@@ -217,26 +213,37 @@ export function ScreenShowcase({
               style={{ aspectRatio: ratio }}
             >
               <div className="relative h-full w-full overflow-hidden rounded-[2.3rem] bg-black">
-                <AnimatePresence initial={false} custom={dir} mode="popLayout">
-                  <motion.div
-                    key={current.src}
-                    custom={dir}
-                    className="absolute inset-0"
-                    initial={reduce ? { opacity: 0 } : { x: `${dir * 100}%`, opacity: 0.6, scale: 0.96 }}
-                    animate={{ x: 0, opacity: 1, scale: 1 }}
-                    exit={reduce ? { opacity: 0 } : { x: `${dir * -35}%`, opacity: 0, scale: 0.92 }}
-                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <Image
-                      src={current.src}
-                      alt={current.label}
-                      fill
-                      draggable={false}
-                      className="pointer-events-none object-cover object-top select-none"
-                      sizes="280px"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+                {/* Every screen stays mounted and preloaded, so switching never
+                    shows an empty frame while an image is still loading. */}
+                {screens.map((s, i) => {
+                  const offset = i === index ? 0 : (i - index) * dir > 0 ? 1 : -1;
+                  return (
+                    <motion.div
+                      key={s.src}
+                      aria-hidden={i !== index}
+                      className="absolute inset-0"
+                      initial={false}
+                      animate={
+                        reduce
+                          ? { opacity: i === index ? 1 : 0 }
+                          : i === index
+                            ? { x: "0%", opacity: 1, scale: 1, zIndex: 2 }
+                            : { x: `${offset * 35}%`, opacity: 0, scale: 0.92, zIndex: 1 }
+                      }
+                      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <Image
+                        src={s.src}
+                        alt={i === index ? s.label : ""}
+                        fill
+                        loading="eager"
+                        draggable={false}
+                        className="pointer-events-none object-cover object-top select-none"
+                        sizes="280px"
+                      />
+                    </motion.div>
+                  );
+                })}
                 {/* Glass glare that moves with tilt */}
                 <motion.div
                   aria-hidden
@@ -294,15 +301,15 @@ export function ScreenShowcase({
 }
 
 function Phone({
-  src,
-  alt,
+  screens,
+  active,
   dark,
   ratio,
   className,
   onClick,
 }: {
-  src: string;
-  alt: string;
+  screens: Screen[];
+  active: number;
   dark: boolean;
   ratio: number;
   className?: string;
@@ -324,7 +331,20 @@ function Phone({
         style={{ aspectRatio: ratio }}
       >
         <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-black">
-          <Image src={src} alt={alt} fill className="object-cover object-top" sizes="200px" />
+          {screens.map((s, i) => (
+            <Image
+              key={s.src}
+              src={s.src}
+              alt=""
+              fill
+              loading="eager"
+              className={cn(
+                "object-cover object-top transition-opacity duration-500",
+                i === active ? "opacity-100" : "opacity-0",
+              )}
+              sizes="200px"
+            />
+          ))}
         </div>
       </div>
     </button>

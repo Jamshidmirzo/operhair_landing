@@ -26,7 +26,7 @@ export function Hero() {
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         <HeroFade>
-          <BrandMark size={44} className="mb-8 text-foreground" />
+          <BrandMark size={72} className="mb-8 text-foreground" />
         </HeroFade>
 
         <HeroFade delay={0.05}>

@@ -25,6 +25,7 @@ const OG_LOCALE_MAP: Record<string, string> = {
   ru: "ru_RU",
   uz: "uz_UZ",
   en: "en_US",
+  ko: "ko_KR",
 };
 
 export function generateStaticParams() {
@@ -58,6 +59,7 @@ export async function generateMetadata({
         ru: "/ru",
         uz: "/uz",
         en: "/en",
+        ko: "/ko",
       },
     },
     openGraph: {
