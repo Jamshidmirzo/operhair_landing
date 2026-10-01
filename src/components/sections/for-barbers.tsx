@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { BarChart3, Bell, Calendar, Users } from "lucide-react";
 
+import { ProLogo } from "@/components/layout/wordmark";
 import { StoreBadge } from "@/components/store-badge";
 
 import { PRO_SCREEN_RATIO, PRO_SCREENS, STORE_LINKS } from "./app-screens";
@@ -33,18 +33,7 @@ export function ForBarbers() {
         {/* Header */}
         <div className="max-w-3xl">
           <Reveal>
-            <div className="mb-6 flex items-center gap-3">
-              <Image
-                src="/logo-hayrli-pro.jpg"
-                alt="Hayrli Pro"
-                width={48}
-                height={48}
-                className="rounded-xl"
-              />
-              <p className="text-xs font-medium tracking-[0.3em] text-slate-400 uppercase">
-                {t("eyebrow")}
-              </p>
-            </div>
+            <ProLogo height={64} className="mb-4 text-[#fffdfa]" />
           </Reveal>
           <Reveal delay={0.1}>
             <h2
@@ -140,6 +129,9 @@ export function ForBarbers() {
         {/* Download Hayrli Pro */}
         <div className="mt-24 flex flex-col items-center text-center">
           <Reveal>
+            <ProLogo height={88} className="mb-8 text-[#fffdfa]" />
+          </Reveal>
+          <Reveal delay={0.05}>
             <h3
               className="font-sans font-light tracking-tight text-white"
               style={{

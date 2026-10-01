@@ -64,3 +64,27 @@ export function BrandMark({
     />
   );
 }
+
+const PRO_RATIO = 626 / 400; // "H" + "Pro" lockup, comb tail is the P's stem
+
+/** Hayrli Pro lockup. `height` is in px. */
+export function ProLogo({
+  className,
+  height = 40,
+}: {
+  className?: string;
+  height?: number;
+}) {
+  return (
+    <span
+      role="img"
+      aria-label="Hayrli Pro"
+      className={cn("inline-block shrink-0 bg-current", className)}
+      style={{
+        ...maskStyle("/brand/hayrli-pro-logo.png"),
+        height,
+        width: Math.round(height * PRO_RATIO),
+      }}
+    />
+  );
+}
