@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
 
@@ -25,6 +28,10 @@ export default async function OpengraphImage({
     : routing.defaultLocale;
   const t = await getTranslations({ locale: safeLocale, namespace: "meta" });
   const description = t("description");
+  const logo = await readFile(
+    join(process.cwd(), "public/brand/hayrli-logo.png"),
+  );
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -36,29 +43,20 @@ export default async function OpengraphImage({
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#020617",
-          color: "#ffffff",
+          background: "#ffffff",
+          color: "#0a0a0a",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
       >
+        {/* The brand logo is dark ink on transparent, so the card is light. */}
+        <img src={logoSrc} width={673 * 1.15} height={240 * 1.15} alt="" />
         <div
           style={{
-            fontSize: 240,
-            fontWeight: 700,
-            letterSpacing: "-0.05em",
-            lineHeight: 1,
-            color: "#ffffff",
-          }}
-        >
-          hayrli
-        </div>
-        <div
-          style={{
-            marginTop: 40,
+            marginTop: 56,
             fontSize: 36,
             fontWeight: 400,
-            color: "#cbd5e1",
+            color: "#52525b",
             textAlign: "center",
             maxWidth: 1000,
             lineHeight: 1.3,
