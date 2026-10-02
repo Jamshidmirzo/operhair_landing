@@ -23,9 +23,12 @@ export function PartnerForm() {
 
   const schema = z.object({
     name: z.string().min(2, t("errors.name")),
+    // Any international number in E.164 form; spaces, dashes and
+    // parentheses are stripped before checking.
     phone: z
       .string()
-      .regex(/^\+998\d{9}$/, t("errors.phone")),
+      .transform((v) => v.replace(/[\s\-()]/g, ""))
+      .pipe(z.string().regex(/^\+[1-9]\d{6,14}$/, t("errors.phone"))),
     city: z.string().min(2, t("errors.city")),
   });
 
@@ -143,7 +146,7 @@ export function PartnerForm() {
         <Field
           id="partner-phone"
           label={t("fields.phone")}
-          placeholder="+998 90 123 45 67"
+          placeholder="+1 555 123 4567"
           value={values.phone}
           onChange={onChange("phone")}
           error={errors.phone}

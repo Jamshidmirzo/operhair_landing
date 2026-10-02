@@ -4,7 +4,7 @@
     "effectiveDate": "Kuchga kirish sanasi: 2026-yil 11-iyul",
     "s1": {
       "heading": "Biz kimiz",
-      "body": "Hayrli — O'zbekistondagi sartaroshlar va go'zallik ustalari bilan uchrashuvlar uchun marketplace. Xizmat Flek LLC kompaniyasi (quyida «biz») tomonidan ishlab chiqilgan. Hayrli Pro — ustalar uchun alohida ilova: jadval, mijozlar bazasi va portfolio boshqaruvi. Ushbu siyosat ikki ilova va hayrli.app sayti orqali foydalanganda ma'lumotlaringizni qanday yig'ishimiz, ishlatishimiz va himoya qilishimizni tushuntiradi."
+      "body": "Hayrli — sartaroshlar va go'zallik ustalari bilan uchrashuvlar uchun marketplace. Xizmat Flek LLC kompaniyasi (quyida «biz») tomonidan ishlab chiqilgan. Hayrli Pro — ustalar uchun alohida ilova: jadval, mijozlar bazasi va portfolio boshqaruvi. Ushbu siyosat ikki ilova va hayrli.app sayti orqali foydalanganda ma'lumotlaringizni qanday yig'ishimiz, ishlatishimiz va himoya qilishimizni tushuntiradi."
     },
     "s2": {
       "heading": "Qanday ma'lumotlar to'playmiz",
@@ -107,7 +107,7 @@
     },
     "s7": {
       "heading": "Qo'llaniladigan qonunchilik",
-      "body": "Ushbu Shartlar O'zbekiston Respublikasi qonunchiligiga asoslanadi. Muzokaralar orqali hal etilmagan nizolar Flek LLC joylashgan yerdagi umumiy yurisdiksiya sudlarida ko'rib chiqiladi."
+      "body": "Ushbu Shartlar Flek LLC ro'yxatdan o'tgan mamlakat qonunchiligiga asoslanadi. Muzokaralar orqali hal etilmagan nizolar Flek LLC joylashgan yerdagi umumiy yurisdiksiya sudlarida ko'rib chiqiladi."
     },
     "s8": {
       "heading": "O'zgarishlar va aloqa",
@@ -116,7 +116,7 @@
   },
   "meta": {
     "title": "Hayrli — ustaga yoz, kalendarni to‘ldir",
-    "description": "Hayrli — O‘zbekistondagi ustalarga yozilish ilovasi. Hayrli Pro — ustalar uchun."
+    "description": "Hayrli — ustalarga yozilish ilovasi. Hayrli Pro — ustalar uchun."
   },
   "masterPage": {
     "openInApp": "Hayrli ilovasida ochish",
@@ -163,7 +163,7 @@
   },
   "footer": {
     "copyright": "© 2026 Hayrli",
-    "tagline": "O‘zbekistonda ustalarga yozilish.",
+    "tagline": "Ustalarga oson yozilish.",
     "columns": {
       "product": "Mahsulot",
       "company": "Kompaniya",
@@ -299,11 +299,11 @@
       },
       "placeholders": {
         "name": "Ismingiz",
-        "city": "Toshkent"
+        "city": "Shahringiz"
       },
       "errors": {
         "name": "Ismni kiriting — kamida 2 ta belgi",
-        "phone": "Telefon +998XXXXXXXXX formatida bo‘lsin",
+        "phone": "Telefonni mamlakat kodi bilan kiriting, masalan +1 555 123 4567",
         "city": "Shaharni ko‘rsating",
         "validation": "Kiritilgan ma’lumotlarni tekshiring",
         "rateLimit": "Juda ko‘p ariza, birozdan so‘ng urinib ko‘ring",

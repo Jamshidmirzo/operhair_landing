@@ -4,7 +4,7 @@
     "effectiveDate": "Effective: 11 July 2026",
     "s1": {
       "heading": "Who we are",
-      "body": "Hayrli is a marketplace for booking barbers and beauty professionals in Uzbekistan. The service is developed by Flek LLC (referred to below as \"we\", \"us\", \"our\"). Hayrli Pro is a separate app for professionals — managing schedules, clients and portfolios. This policy explains how we collect, use and protect your data when you use either app or the website hayrli.app."
+      "body": "Hayrli is a marketplace for booking barbers and beauty professionals. The service is developed by Flek LLC (referred to below as \"we\", \"us\", \"our\"). Hayrli Pro is a separate app for professionals — managing schedules, clients and portfolios. This policy explains how we collect, use and protect your data when you use either app or the website hayrli.app."
     },
     "s2": {
       "heading": "What data we collect",
@@ -107,7 +107,7 @@
     },
     "s7": {
       "heading": "Governing law",
-      "body": "These Terms are governed by the laws of the Republic of Uzbekistan. Disputes not resolved by negotiation shall be referred to the courts of general jurisdiction at the location of Flek LLC."
+      "body": "These Terms are governed by the laws of the jurisdiction in which Flek LLC is registered. Disputes not resolved by negotiation shall be referred to the courts of general jurisdiction at the location of Flek LLC."
     },
     "s8": {
       "heading": "Changes and contact",
@@ -116,7 +116,7 @@
   },
   "meta": {
     "title": "Hayrli — book a barber, fill your calendar",
-    "description": "Hayrli is the booking app for barbers in Uzbekistan. Hayrli Pro is for barbers themselves."
+    "description": "Hayrli is the booking app for barbers. Hayrli Pro is for barbers themselves."
   },
   "masterPage": {
     "openInApp": "Open in Hayrli",
@@ -163,7 +163,7 @@
   },
   "footer": {
     "copyright": "© 2026 Hayrli",
-    "tagline": "Booking barbers in Uzbekistan.",
+    "tagline": "Booking barbers, made simple.",
     "columns": {
       "product": "Product",
       "company": "Company",
@@ -299,11 +299,11 @@
       },
       "placeholders": {
         "name": "Your name",
-        "city": "Tashkent"
+        "city": "Your city"
       },
       "errors": {
         "name": "Enter your name — at least 2 characters",
-        "phone": "Phone must match +998XXXXXXXXX",
+        "phone": "Enter a valid phone number with country code, e.g. +1 555 123 4567",
         "city": "Please enter your city",
         "validation": "Please check the form fields",
         "rateLimit": "Too many requests, please try again later",

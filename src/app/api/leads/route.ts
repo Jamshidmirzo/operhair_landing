@@ -80,13 +80,14 @@ function validate(
   if (!body || typeof body !== "object") return { ok: false };
   const b = body as Record<string, unknown>;
   const name = typeof b.name === "string" ? b.name.trim() : "";
-  const phone = typeof b.phone === "string" ? b.phone.trim() : "";
+  const phone =
+    typeof b.phone === "string" ? b.phone.replace(/[\s\-()]/g, "") : "";
   const city = typeof b.city === "string" ? b.city.trim() : "";
   const honeypot = typeof b.honeypot === "string" ? b.honeypot : "";
   const source = typeof b.source === "string" ? b.source : "landing";
 
   if (name.length < 2 || name.length > 100) return { ok: false };
-  if (!/^\+998\d{9}$/.test(phone)) return { ok: false };
+  if (!/^\+[1-9]\d{6,14}$/.test(phone)) return { ok: false };
   if (city.length < 2 || city.length > 100) return { ok: false };
 
   return { ok: true, data: { name, phone, city, honeypot, source } };

@@ -125,6 +125,29 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Tailwind v4 resets buttons to the default arrow; anything clickable
+     should show the hand cursor instead. */
+  a[href],
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"],
+  [role="menuitem"],
+  [role="menuitemradio"],
+  [role="option"],
+  [role="switch"],
+  summary,
+  label[for],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
   html {
     @apply font-sans;
     /* Lenis adds .lenis class to html when smooth scroll is active. Tweak
